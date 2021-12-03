@@ -1,5 +1,13 @@
 {
   "translation": {
-    "claimAirdrop": "Claim Airdrop"
+    "claimAirdrop": "Claim Airdrop",
+    "aboutUs": "About Us",
+    "aboutUsTitle": "Hydro <1>$H2O</1> is a community owned, fair launched Reward Protocol",
+    "aboutUsDescription": "Hydro operates using is a frictionless yield and liquidity generation smart contract which applies a <1>5%</1> fee to each buy transaction; and <1>10%</1> to each sell. This transaction fee is split into two portions which serve separate functions.",
+    "aboutUsPoint1": "Investors provide capital",
+    "aboutUsPoint2": "A tax for each buy or sell transaction is collected",
+    "aboutUsPoint3": "20% of the taxes gets added to the Liquidity Pool",
+    "aboutUsPoint4": "80% of the taxes get elaborated by the buyback system",
+    "aboutUsPoint5": "80% of previously collected taxes gets swapped into reward token and redistributed among Hydro Holders"
   }
 }

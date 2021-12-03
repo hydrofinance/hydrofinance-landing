@@ -28,7 +28,16 @@ export default createTheme({
   shape: {
     borderRadius: 4,
   },
-  typography: {},
+  typography: {
+    h2: {
+      fontSize: 36,
+      fontWeight: 600
+    },
+    body1: {
+      fontSize: 16,
+      fontWeight: 300
+    }
+  },
   components: {
     MuiButton: {
       defaultProps: {

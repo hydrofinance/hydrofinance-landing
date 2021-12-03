@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import SectionBox from "../common/components/SectionBox";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
+import AboutUs from "./components/AboutUs";
 
 export default function Main() {
   return (
@@ -21,6 +22,7 @@ export default function Main() {
         <Header />
       </SectionBox>
       <Banner />
+      <AboutUs />
     </Box>
   );
 }
