@@ -1,5 +1,5 @@
 const singleAssetRequire = require.context(
-  "../assets/token",
+  "../assets",
   false,
   /\.(svg|webp|png)$/
 );
@@ -21,6 +21,6 @@ export const getSingleAssetSrc = (symbol) => {
     ));
   }
 
-  console.error(`Image required for '${symbol}' token in 'assets/token/'`);
+  console.error(`Image required for '${symbol}' token in 'assets'`);
   return { default: "" };
 };

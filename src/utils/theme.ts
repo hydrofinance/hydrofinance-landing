@@ -20,10 +20,37 @@ export const absoluteCenterVertically = {
 
 export default createTheme({
   palette: {
+    mode: "dark",
+    secondary: {
+      main: "#ffffff",
+    },
   },
   shape: {
     borderRadius: 4,
   },
-  typography: {
+  typography: {},
+  components: {
+    MuiButton: {
+      defaultProps: {
+        sx: {
+          fontWeight: 600,
+          fontSize: 16,
+        },
+      },
+      variants: [
+        {
+          props: { variant: "outlined" },
+          style: {
+            border: "2px solid white",
+            borderRadius: 40,
+            textTransform: "none",
+            height: 35,
+            "&:hover": {
+              border: "2px solid white",
+            },
+          },
+        },
+      ],
+    },
   },
 });
