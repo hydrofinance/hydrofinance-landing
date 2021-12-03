@@ -30,13 +30,29 @@ export default createTheme({
   },
   typography: {
     h2: {
+      fontSize: 48,
+      fontWeight: 600,
+    },
+    h3: {
       fontSize: 36,
+      fontWeight: 600,
+    },
+    h4: {
+      fontSize: 28,
+      fontWeight: 600,
+    },
+    h5: {
+      fontSize: 26,
+      fontWeight: 700,
+    },
+    subtitle1: {
+      fontSize: 22,
       fontWeight: 600
     },
     body1: {
       fontSize: 16,
-      fontWeight: 300
-    }
+      fontWeight: 500,
+    },
   },
   components: {
     MuiButton: {

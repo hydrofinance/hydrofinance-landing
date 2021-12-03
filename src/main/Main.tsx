@@ -4,6 +4,7 @@ import SectionBox from "../common/components/SectionBox";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import AboutUs from "./components/AboutUs";
+import Tokenomics from "./components/Tokenomics";
 
 export default function Main() {
   return (
@@ -23,6 +24,7 @@ export default function Main() {
       </SectionBox>
       <Banner />
       <AboutUs />
+      <Tokenomics />
     </Box>
   );
 }

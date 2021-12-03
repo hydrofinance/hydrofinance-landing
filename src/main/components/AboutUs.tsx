@@ -20,12 +20,12 @@ function Content() {
       }}
     >
       <SectionTitle>{t("aboutUs")}</SectionTitle>
-      <Typography variant="h2" sx={{ mt: 1 }}>
+      <Typography variant="h3" sx={{ mt: 1 }}>
         <Trans i18nKey="aboutUsTitle">
           Part0<span style={{ fontWeight: 500 }}>Part1</span>Part2
         </Trans>
       </Typography>
-      <Typography variant="body1" sx={{ mt: 2 }}>
+      <Typography variant="body1" sx={{ mt: 2, fontWeight: 300 }}>
         <Trans i18nKey="aboutUsDescription">
           Part0<span style={{ fontWeight: 700 }}>Part1</span>Part2
           <span style={{ fontWeight: 700 }}>Part3</span>Part4

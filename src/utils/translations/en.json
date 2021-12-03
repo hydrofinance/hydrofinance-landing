@@ -8,6 +8,26 @@
     "aboutUsPoint2": "A tax for each buy or sell transaction is collected",
     "aboutUsPoint3": "20% of the taxes gets added to the Liquidity Pool",
     "aboutUsPoint4": "80% of the taxes get elaborated by the buyback system",
-    "aboutUsPoint5": "80% of previously collected taxes gets swapped into reward token and redistributed among Hydro Holders"
+    "aboutUsPoint5": "80% of previously collected taxes gets swapped into reward token and redistributed among Hydro Holders",
+    "tokenomics": "Tokenomics",
+    "tokenomicsTokensAmount": "One Billion Total Supply",
+    "tokenomicsDistribution": "Token Distribution",
+    "tokenomicsInfo1Title": "20%",
+    "tokenomicsInfo1Description": "Fairlaunch Liquidity",
+    "tokenomicsInfo1Link": "LP Migrator Contract",
+    "tokenomicsInfo2Title": "75%",
+    "tokenomicsInfo2Description": "Airdrops for Strategic Partnerships",
+    "tokenomicsInfo3Title": "5%",
+    "tokenomicsInfo3Description": "Team tokens <1>Vested</1> over 4 months",
+    "tokenomicsInfo3Link": "Lock Link",
+    "tokenomicsTax": "Tax Tokenomics",
+    "tokenomicsTaxInfo1Title": "<1>Buy</1> Tax",
+    "tokenomicsTaxInfo1Subtitle": "5%",
+    "tokenomicsTaxInfo1Caption1": "4% Rewards",
+    "tokenomicsTaxInfo1Caption2": "1% Liquidity",
+    "tokenomicsTaxInfo2Title": "<1>Sell</1> Tax",
+    "tokenomicsTaxInfo2Subtitle": "10%",
+    "tokenomicsTaxInfo2Caption1": "8% Rewards",
+    "tokenomicsTaxInfo2Caption2": "2% Liquidity"
   }
 }
