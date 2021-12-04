@@ -27,7 +27,7 @@ export default function Header(props: BoxProps) {
       {...other}
     >
       <Link href={"https://hydroprotocol.finance"} sx={{ mt: 1 }}>
-        <img src={HYDRO} alt="RivrKitty" />
+        <img src={HYDRO} alt="Hydro" />
       </Link>
       <Box flex={1} />
       <Hidden mdDown>
