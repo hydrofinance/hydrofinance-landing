@@ -13,6 +13,10 @@ export const defaultContentPadding = {
   },
 };
 
+export const textShadow = {
+  textShadow: "0px 4px 4px #00000066",
+};
+
 export const absoluteCenterVertically = {
   top: "50%",
   transform: "translate(0%, -50%)",
@@ -47,7 +51,11 @@ export default createTheme({
     },
     subtitle1: {
       fontSize: 22,
-      fontWeight: 600
+      fontWeight: 600,
+    },
+    subtitle2: {
+      fontSize: 18,
+      fontWeight: 500,
     },
     body1: {
       fontSize: 16,
@@ -67,12 +75,18 @@ export default createTheme({
           props: { variant: "outlined" },
           style: {
             border: "2px solid white",
-            borderRadius: 40,
             textTransform: "none",
+            borderRadius: 40,
             height: 35,
             "&:hover": {
               border: "2px solid white",
             },
+          },
+        },
+        {
+          props: { variant: "text" },
+          style: {
+            textTransform: "none",
           },
         },
       ],

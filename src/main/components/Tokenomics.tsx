@@ -191,6 +191,8 @@ function TaxInfo() {
   );
 }
 
+
+
 export default function Tokenomics() {
   return (
     <Box
@@ -220,6 +222,7 @@ export default function Tokenomics() {
           <Grid item xs={12} md={7}>
             <TaxInfo />
           </Grid>
+          <Grid item xs={12} md={4}></Grid>
         </Grid>
       </SectionBox>
     </Box>

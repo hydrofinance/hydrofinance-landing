@@ -4,7 +4,7 @@ import Box, { BoxProps } from "@mui/material/Box";
 import HYDRO from "../../assets/HYDRO.png";
 import { defaultContentPadding } from "../../utils/theme";
 import SocialButton from "../../common/components/SocialButton";
-import { Button } from "@mui/material";
+import { Button, Hidden } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 export default function Header(props: BoxProps) {
@@ -26,14 +26,32 @@ export default function Header(props: BoxProps) {
       }}
       {...other}
     >
-      <Link href={"https://hydroprotocol.finance"}>
+      <Link href={"https://hydroprotocol.finance"} sx={{ mt: 1 }}>
         <img src={HYDRO} alt="RivrKitty" />
       </Link>
       <Box flex={1} />
-      <SocialButton />
-      <Button variant="outlined" color="secondary" sx={{ width: "155px", backgroundColor: "#ffffff33"}}>
+      <Hidden mdDown>
+        <SocialButton />
+        <Box sx={{ mr: 2 }} />
+      </Hidden>
+      <Button
+        variant="outlined"
+        color="secondary"
+        sx={{
+          width: {
+            sx: "100px",
+            md: "155px",
+          },
+          backgroundColor: "#ffffff33",
+        }}
+        disabled
+      >
         {t("claimAirdrop")}
       </Button>
+      <Hidden mdUp>
+        <Box sx={{ ml: 2 }} />
+        <SocialButton />
+      </Hidden>
     </Box>
   );
 }

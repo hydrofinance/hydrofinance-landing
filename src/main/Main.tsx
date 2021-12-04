@@ -19,12 +19,12 @@ export default function Main() {
         alignItems: "center",
       }}
     >
-      <SectionBox sx={{ position: "absolute", top: 0 }}>
+      <SectionBox sx={{ position: "absolute", top: 0, left: 0, right: 0 }}>
         <Header />
       </SectionBox>
       <Banner />
-      <AboutUs />
-      <Tokenomics />
+      {/* <AboutUs />
+      <Tokenomics /> */}
     </Box>
   );
 }
