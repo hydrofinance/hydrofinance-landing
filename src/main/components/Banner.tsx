@@ -7,7 +7,7 @@ import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HYDROLANDING from "../../assets/HYDROLANDING.png";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const useStyles = makeStyles({
   input: {
@@ -18,8 +18,7 @@ const useStyles = makeStyles({
     border: "2px solid #fff",
     "& input:disabled": {
       color: "rgba(255, 255, 255)",
-      textFillColor: "rgba(255,255,255)"
-
+      textFillColor: "rgba(255,255,255)",
     },
   },
   mobileInput: {
@@ -42,13 +41,13 @@ const useStyles = makeStyles({
 
 export default function Banner() {
   const { t } = useTranslation();
-  const contractTobeCopied = 'contractTobeCopied';
+  const contractTobeCopied = "contractTobeCopied";
   const classes = useStyles();
-  const isMobileorTab = useMediaQuery('(max-width:899px)');
+  const isMobileorTab = useMediaQuery("(max-width:899px)");
 
-  const handleOnCopy=()=>{
-    navigator.clipboard.writeText(contractTobeCopied)
-  } 
+  const handleOnCopy = () => {
+    navigator.clipboard.writeText(contractTobeCopied);
+  };
   return (
     <Box
       sx={{
@@ -78,7 +77,7 @@ export default function Banner() {
           {t("welcomeTo")}
         </Typography>
         <Box>
-          <img style={{maxWidth: "100%"}} src={HYDROLANDING} alt="Hydro" />
+          <img style={{ maxWidth: "100%" }} src={HYDROLANDING} alt="Hydro" />
         </Box>
         <Typography variant="subtitle2" sx={{ mt: "-8px", ...textShadow }}>
           {t("hydroDescription")}
@@ -86,7 +85,11 @@ export default function Banner() {
         <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
           <TextField
             disabled
-            InputProps={{ className: ` ${classes.input} ${isMobileorTab && classes.mobileInput}` }}
+            InputProps={{
+              className: ` ${classes.input} ${
+                isMobileorTab && classes.mobileInput
+              }`,
+            }}
             fullWidth
             defaultValue="Contract to be confirmed"
             id="fullWidth"
@@ -99,7 +102,7 @@ export default function Banner() {
               fontWeight: 500,
               pl: 3,
               pr: 3,
-              height: {xs: "30px", md: "48px"}
+              height: { xs: "30px", md: "48px" },
             }}
             className={classes.button}
             onClick={handleOnCopy}
