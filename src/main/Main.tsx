@@ -24,8 +24,8 @@ export default function Main() {
         <Header />
       </SectionBox>
       <Banner />
-      {/* <AboutUs />
-      <Tokenomics /> */}
+      <AboutUs />
+      <Tokenomics />
       <BuyingGuide />
     </Box>
   );

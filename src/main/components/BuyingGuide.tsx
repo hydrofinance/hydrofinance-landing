@@ -2,9 +2,10 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box, { BoxProps } from "@mui/system/Box";
 import { Trans, useTranslation } from "react-i18next";
-import BorderedBox from "../../common/components/BorderedBox";
 import SectionBox from "../../common/components/SectionBox";
 import { defaultContentPadding } from "../../utils/theme";
+import BuyingGuideDescription from "../../common/components/BuyingGuideDescription";
+import FancyDivider from "../../common/components/FancyDivider";
 
 const Steps: StepItemType[] = [
   {
@@ -39,7 +40,7 @@ type StepItemType = {
   transDescription?: boolean;
 };
 
-function StepItem(props: { item: StepItemType, stepNo: Number } & BoxProps) {
+function StepItem(props: { item: StepItemType; stepNo: Number } & BoxProps) {
   const {
     item: { titleKey, descriptionKey, transDescription },
     stepNo,
@@ -49,41 +50,62 @@ function StepItem(props: { item: StepItemType, stepNo: Number } & BoxProps) {
 
   const { t } = useTranslation();
 
+  const borderGradientStyle = {
+    background: `linear-gradient(#1f1f1f,#1f1f1f) padding-box, linear-gradient(90deg, #FFFFFF 0, rgba(255, 255, 255, 0) 90.1%) border-box`,
+    border: "1px solid transparent",
+    borderRadius: "15px",
+  };
+
   return (
-    <BorderedBox 
+    <Box
       style={{
         alignItems: "flex-start",
         flexDirection: "row",
         display: "flex",
-        backgroundSize: "contain",
-        backgroundRepeat: "no-repeat",
-        marginBottom: "10px"
-      }} 
-      sx={{ padding: 1, paddingLeft: 2, ...(sx || {}) }} {...other}>
-      <div style={{ 
-        alignSelf: "center",
-        padding: "0 120px 0 20px",
-        fontWeight: "bold",
-        fontSize: "20px",
-        minWidth: "75px"
-      }}>
+        marginBottom: "10px",
+        ... borderGradientStyle,
+      }}
+      sx={{ padding: 1, paddingLeft: 2, ...(sx || {}) }}
+      {...other}
+    >
+      <div
+        style={{
+          alignSelf: "center",
+          padding: "0 80px 0 20px",
+          fontWeight: "bold",
+          fontSize: "20px",
+          minWidth: "75px",
+        }}
+      >
         <span>{`Step ${stepNo}`}</span>
       </div>
-      <div style={{ 
-        padding: "10px 0",
-      }}>
-        <Typography variant="body1" style={{fontWeight: "bold", marginBottom: "4px"}}>{t(titleKey)}</Typography>
-        <Typography variant="body2">
+      <div
+        style={{
+          padding: "2px 0 8px 0",
+          minHeight: "50px",
+        }}
+      >
+        <Typography
+          variant="body1"
+          style={{ fontWeight: "bold", marginBottom: "4px" }}
+        >
+          {t(titleKey)}
+        </Typography>
+        <Typography variant="body2" style={{ fontSize: "12px", lineHeight: "1.2" }}>
           {transDescription ? (
             <Trans i18nKey={descriptionKey}>
-              Part0<a href="https://TODO" style={{ color: "#40B3E0" }}>Part1</a>Part2
+              Part0
+              <a href="https://TODO" style={{ color: "#40B3E0", textDecoration: "none" }}>
+                Part1
+              </a>
+              Part2
             </Trans>
           ) : (
             t(descriptionKey)
           )}
         </Typography>
       </div>
-    </BorderedBox>
+    </Box>
   );
 }
 
@@ -100,6 +122,9 @@ function Info() {
 }
 
 export default function BuyingGuide() {
+
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -107,27 +132,41 @@ export default function BuyingGuide() {
           sx: "auto 100%",
           lg: "100% 100%",
         },
-        width: "100%",
         display: "flex",
         justifyContent: "center",
+        ...defaultContentPadding,
+
       }}
     >
       <SectionBox>
+        <FancyDivider/>
         <Grid
-          container
+          container 
+        
+        >
+          <Grid item xs={12} md={3} sx={{display: "flex", flexDirection: "column"}}>
+            <BuyingGuideDescription />
+          </Grid>
+          <Grid item xs={12} md={9} sx={{display: "flex", flexDirection: "column"}}>
+            <Grid item xs={12} md={10} sx= {{ml: "auto", mr: "auto"}}>
+              <Info />
+            </Grid>
+          </Grid>
+        </Grid>
+        <FancyDivider sx={{
+            marginBottom: "10px",
+          }}/>
+        <Box 
           sx={{
-            ...defaultContentPadding,
-            mt: "120px",
-            mb: "120px",
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            mb: "20px"
           }}
         >
-          <Grid item xs={12} md={7}>
-            <Info />
-          </Grid>
-          <Grid item xs={12} md={7}>
-          </Grid>
-          <Grid item xs={12} md={4}></Grid>
-        </Grid>
+          <Typography variant="h3">{t("hydro")}</Typography>
+          <Typography variant="body2" sx= {{ ml: "12px"}}>{t("copyright")}</Typography>
+        </Box>
       </SectionBox>
     </Box>
   );
