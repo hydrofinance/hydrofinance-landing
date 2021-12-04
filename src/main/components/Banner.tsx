@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
-import HYDROLANDING from "../../assets/HYDROLANDING.png";
+import HYDROLANDING from "../../assets/HYDROLANDING.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const useStyles = makeStyles({
@@ -41,12 +41,12 @@ const useStyles = makeStyles({
 
 export default function Banner() {
   const { t } = useTranslation();
-  const contractTobeCopied = "contractTobeCopied";
+  const hydroContract = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   const classes = useStyles();
   const isMobileorTab = useMediaQuery("(max-width:899px)");
 
   const handleOnCopy = () => {
-    navigator.clipboard.writeText(contractTobeCopied);
+    navigator.clipboard.writeText(hydroContract);
   };
   return (
     <Box
@@ -82,7 +82,7 @@ export default function Banner() {
         <Typography variant="subtitle2" sx={{ mt: "-8px", ...textShadow }}>
           {t("hydroDescription")}
         </Typography>
-        <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+        {/* <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
           <TextField
             disabled
             InputProps={{
@@ -91,7 +91,7 @@ export default function Banner() {
               }`,
             }}
             fullWidth
-            defaultValue="Contract to be confirmed"
+            defaultValue={hydroContract}
             id="fullWidth"
           />
           <Button
@@ -109,7 +109,7 @@ export default function Banner() {
           >
             {t("Copy")}
           </Button>
-        </Box>
+        </Box> */}
         <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
           <Button
             variant="outlined"
