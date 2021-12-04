@@ -12,7 +12,7 @@
     "menuMedium": "Medium",
     "menuGithub": "GitHub",
     "aboutUs": "About Us",
-    "aboutUsTitle": "Hydro <1>$H2O</1> is a community owned, fair launched Reward Protocol",
+    "aboutUsTitle": "Hydro <1>$water</1> is a community owned, fair launched Reward Protocol",
     "aboutUsDescription": "Hydro operates using is a frictionless yield and liquidity generation smart contract which applies a <1>5%</1> fee to each buy transaction; and <1>10%</1> to each sell. This transaction fee is split into two portions which serve separate functions.",
     "aboutUsPoint1": "Investors provide capital",
     "aboutUsPoint2": "A tax for each buy or sell transaction is collected",
@@ -45,12 +45,12 @@
     "buyingGuideStep2Title": "Connect your wallet to Moonriver Network",
     "buyingGuideStep2Description": "Use chainlist to add the Moonriver RPC to your metamask wallet. Watch this <1>Youtube Guide</1> for a more detailed guide.<br/><br/>Click this link to open  Huckleberry Finance DEX. Connect your wallet.\nSign when Metamask asks you to do so.",
     "buyingGuideStep3Title": "Send some MOVR to the wallet",
-    "buyingGuideStep3Description": "Once you've setup Metamask, you can send some MOVR from an exchange like Kucoin, Kraken, Gate.io.<br/><br/>Or if you prefer you can use the SolarBeam or Wanchain Bridge to bridge over your ETH here: <1>https://app.solarbeam.io/bridge</1> or <1>https://bridge.wanchain.org/#/</1> <br/><br/>Alternatively, you can swap cross-chain directly from ETH or BSC to $H20 using <1>Rubic</1>",
+    "buyingGuideStep3Description": "Once you've setup Metamask, you can send some MOVR from an exchange like Kucoin, Kraken, Gate.io.<br/><br/>Or if you prefer you can use the SolarBeam or Wanchain Bridge to bridge over your ETH here: <1>https://app.solarbeam.io/bridge</1> or <1>https://bridge.wanchain.org/#/</1> <br/><br/>Alternatively, you can swap cross-chain directly from ETH or BSC to $water using <1>Rubic</1>",
     "buyingGuideStep4Title": "Send some MOVR to the wallet",
-    "buyingGuideStep4Description": "Now you can swap your MOVR for $H20 on the Huckleberry Finance DEX, selecting amount of MOVR you wish to convert to $H20 and clicking swap.<br/> Congratulations, you now hold $H20..",
+    "buyingGuideStep4Description": "Now you can swap your MOVR for $water on the Huckleberry Finance DEX, selecting amount of MOVR you wish to convert to $water and clicking swap.<br/> Congratulations, you now hold $water..",
     "buyingGuideStep5Title": "HODL!",
     "buyingGuideStep5Description": "All that's left now is to HODL and see your rewards grow from reflections!",
-    "buyingGuideContractTitle": "$H20 Moonriver Contract Address",
+    "buyingGuideContractTitle": "$water Moonriver Contract Address",
     "copyright": "Copyright © 2021 HYDRO PROTOCOL"
   }
 }
