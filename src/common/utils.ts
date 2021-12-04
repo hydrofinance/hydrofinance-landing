@@ -8,17 +8,17 @@ export const CONTACT_ITEMS: ContactItemType[] = [
   {
     primaryText: "menuTelegram",
     icon: "TELEGRAM",
-    redirectTo: "https://TODO",
+    redirectTo: "https://t.me/HydroProtocolOfficial",
   },
   {
     primaryText: "menuTwitter",
     icon: "TWITTER",
-    redirectTo: "https://TODO",
+    redirectTo: "https://twitter.com/H2O_Protocol",
   },
   {
     primaryText: "menuMedium",
     icon: "MEDIUM",
-    redirectTo: "https://medium.com/TODO",
+    redirectTo: "https://medium.com/@H2OProtocol",
   },
   {
     primaryText: "menuGithub",
