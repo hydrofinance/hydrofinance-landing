@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Banner from "./components/Banner";
 import AboutUs from "./components/AboutUs";
 import Tokenomics from "./components/Tokenomics";
+import BuyingGuide from "./components/BuyingGuide";
 
 export default function Main() {
   return (
@@ -24,7 +25,8 @@ export default function Main() {
       </SectionBox>
       <Banner />
       {/* <AboutUs />
-      <Tokenomics /> */}
+      <Tokenomics />
+      <BuyingGuide /> */}
     </Box>
   );
 }
