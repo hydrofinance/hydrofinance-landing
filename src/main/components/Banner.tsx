@@ -1,12 +1,43 @@
 import { Button, Typography } from "@mui/material";
+import TextField from "@mui/material/TextField";
 import { Box } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
+import { makeStyles } from "@mui/styles";
+import HYDROLANDING from "../../assets/HYDROLANDING.png";
+
+const useStyles = makeStyles({
+  input: {
+    borderRadius: "20px 0px 0 20px",
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+    border: "2px solid #fff",
+    "& input:disabled": {
+      color: "rgba(255, 255, 255, 1)",
+    },
+  },
+  button: {
+    padding: 7,
+    height: "48px",
+    borderRadius: "0 20px 20px 0",
+    width: "200px",
+    background: "#ffffff",
+    color: "#40B3E0",
+    fontSize: "16px",
+    fontWeight: "500px",
+    "&:hover": {
+      background: "#ffffff",
+    },
+  },
+});
 
 export default function Banner() {
   const { t } = useTranslation();
+
+  const classes = useStyles();
 
   return (
     <Box
@@ -36,53 +67,61 @@ export default function Banner() {
         <Typography variant="body1" sx={textShadow}>
           {t("welcomeTo")}
         </Typography>
-        <Box
-          sx={{
-            fontSize: {
-              xs: 96,
-              md: 136,
-            },
-            fontWeight: 700,
-            mt: {
-              xs: "-12px",
-              md: "-24px",
-            },
-            ml: "-5px",
-            ...textShadow,
-          }}
-        >
-          {t("hydro")}
+        <Box>
+          <img src={HYDROLANDING} alt="Hydro" />
         </Box>
         <Typography variant="subtitle2" sx={{ mt: "-8px", ...textShadow }}>
           {t("hydroDescription")}
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
-        <Button
-          variant="outlined"
-          color="secondary"
-          sx={{
-            fontSize: 14,
-            fontWeight: 500,
-            pl: 3,
-            pr: 3,
-          }}
-          disabled
-        >
-          {t("buyNow")}
-        </Button>
-        <Button
-          variant="text"
-          color="secondary"
-          sx={{
-            fontSize: 16,
-            fontWeight: 500,
-            pl: 3,
-            pr: 3,
-          }}
-          disabled
-        >
-          {t("liveChart")}
-        </Button>
+          <TextField
+            disabled
+            InputProps={{ className: classes.input }}
+            fullWidth
+            defaultValue="Contract to be continued"
+            id="fullWidth"
+          />
+          <Button
+            variant="outlined"
+            color="secondary"
+            sx={{
+              fontSize: 14,
+              fontWeight: 500,
+              pl: 3,
+              pr: 3,
+            }}
+            className={classes.button}
+          >
+            {t("Copy")}
+          </Button>
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            sx={{
+              fontSize: 14,
+              fontWeight: 500,
+              pl: 3,
+              pr: 3,
+            }}
+            disabled
+          >
+            {t("buyNow")}
+          </Button>
+          <Button
+            variant="text"
+            color="secondary"
+            sx={{
+              fontSize: 16,
+              fontWeight: 500,
+              pl: 3,
+              pr: 3,
+            }}
+            disabled
+          >
+            {t("liveChart")}
+          </Button>
         </Box>
       </Box>
     </Box>
