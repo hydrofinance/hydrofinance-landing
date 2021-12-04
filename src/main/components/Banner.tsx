@@ -7,21 +7,27 @@ import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HYDROLANDING from "../../assets/HYDROLANDING.png";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const useStyles = makeStyles({
   input: {
     borderRadius: "20px 0px 0 20px",
     color: "white",
     height: 48,
-    padding: "0 30px",
+    padding: "0 8px",
     border: "2px solid #fff",
     "& input:disabled": {
-      color: "rgba(255, 255, 255, 1)",
+      color: "rgba(255, 255, 255)",
+      textFillColor: "rgba(255,255,255)"
+
     },
+  },
+  mobileInput: {
+    height: "30px",
+    fontSize: "14px",
   },
   button: {
     padding: 7,
-    height: "48px",
     borderRadius: "0 20px 20px 0",
     width: "200px",
     background: "#ffffff",
@@ -36,9 +42,13 @@ const useStyles = makeStyles({
 
 export default function Banner() {
   const { t } = useTranslation();
-
+  const contractTobeCopied = 'contractTobeCopied';
   const classes = useStyles();
+  const isMobileorTab = useMediaQuery('(max-width:899px)');
 
+  const handleOnCopy=()=>{
+    navigator.clipboard.writeText(contractTobeCopied)
+  } 
   return (
     <Box
       sx={{
@@ -68,7 +78,7 @@ export default function Banner() {
           {t("welcomeTo")}
         </Typography>
         <Box>
-          <img src={HYDROLANDING} alt="Hydro" />
+          <img style={{maxWidth: "100%"}} src={HYDROLANDING} alt="Hydro" />
         </Box>
         <Typography variant="subtitle2" sx={{ mt: "-8px", ...textShadow }}>
           {t("hydroDescription")}
@@ -76,9 +86,9 @@ export default function Banner() {
         <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
           <TextField
             disabled
-            InputProps={{ className: classes.input }}
+            InputProps={{ className: ` ${classes.input} ${isMobileorTab && classes.mobileInput}` }}
             fullWidth
-            defaultValue="Contract to be continued"
+            defaultValue="Contract to be confirmed"
             id="fullWidth"
           />
           <Button
@@ -89,8 +99,10 @@ export default function Banner() {
               fontWeight: 500,
               pl: 3,
               pr: 3,
+              height: {xs: "30px", md: "48px"}
             }}
             className={classes.button}
+            onClick={handleOnCopy}
           >
             {t("Copy")}
           </Button>
