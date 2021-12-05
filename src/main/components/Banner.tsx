@@ -7,7 +7,7 @@ import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HYDROLANDING from "../../assets/HYDROLANDING.svg";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import SectionBox from "../../common/components/SectionBox";
 
 const useStyles = makeStyles({
   input: {
@@ -43,7 +43,7 @@ export default function Banner() {
   const { t } = useTranslation();
   const hydroContract = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   const classes = useStyles();
-  const isMobileorTab = useMediaQuery("(max-width:899px)");
+  
 
   const handleOnCopy = () => {
     navigator.clipboard.writeText(hydroContract);
@@ -59,18 +59,19 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        maxHeight: "100%",
+        minHeight: "900px",
         height: "100%",
+        display: "flex",
+        justifyContent: "center"
       }}
     >
-      <Box
+      <SectionBox
         sx={{
           ...defaultContentPadding,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           height: "100%",
-          alignItems: "flex-start",
         }}
       >
         <Typography variant="body1" sx={textShadow}>
@@ -138,7 +139,7 @@ export default function Banner() {
             {t("liveChart")}
           </Button>
         </Box>
-      </Box>
+      </SectionBox>
     </Box>
   );
 }
