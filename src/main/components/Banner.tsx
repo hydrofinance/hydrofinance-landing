@@ -37,13 +37,15 @@ const useStyles = makeStyles({
       background: "#ffffff",
     },
   },
+  logoImg: {
+    marginLeft: '-3px',
+  }
 });
 
 export default function Banner() {
   const { t } = useTranslation();
   const hydroContract = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   const classes = useStyles();
-  
 
   const handleOnCopy = () => {
     navigator.clipboard.writeText(hydroContract);
@@ -52,17 +54,20 @@ export default function Banner() {
     <Box
       sx={{
         backgroundImage: `url(${getSingleAssetSrc("LANDING").default})`,
-        backgroundPositionX: "center",
+        backgroundPositionX: {
+          xs: "left",
+          lg: "center"
+        },
         backgroundRepeat: "no-repeat",
         backgroundSize: {
-          sx: "auto 100%",
+          xs: "auto 100%",
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: "900px",
+        minHeight: "100%",
         height: "100%",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       <SectionBox
@@ -78,9 +83,9 @@ export default function Banner() {
           {t("welcomeTo")}
         </Typography>
         <Box>
-          <img style={{ maxWidth: "100%" }} src={HYDROLANDING} alt="Hydro" />
+          <img style={{ maxWidth: "100%" }} className={classes.logoImg} src={HYDROLANDING} alt="Hydro" />
         </Box>
-        <Typography variant="subtitle2" sx={{ mt: "-8px", ...textShadow }}>
+        <Typography variant="subtitle2" sx={{ mt: "-5px", ...textShadow, lineHeight: "18.75px" }}>
           {t("hydroDescription")}
         </Typography>
         {/* <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>

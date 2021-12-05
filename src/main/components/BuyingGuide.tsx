@@ -95,7 +95,7 @@ function StepItem(props: { item: StepItemType; stepNo: Number } & BoxProps) {
           {transDescription ? (
             <Trans i18nKey={descriptionKey}>
               Part0
-              <a href="https://TODO" style={{ color: "#40B3E0", textDecoration: "none" }}>
+              <a target="_blank" href="https://app.rubic.exchange/?fromChain=BSC&toChain=MOONRIVER&from=BNB&to=MOVR" style={{ color: "#40B3E0", textDecoration: "none" }}>
                 Part1
               </a>
               Part2

@@ -1,17 +1,26 @@
 import React from "react";
 import Link from "@mui/material/Link";
 import Box, { BoxProps } from "@mui/material/Box";
-import HYDRO from "../../assets/HYDRO.png";
+import HYDRO from "../../assets/HYDRO.svg";
 import { defaultContentPadding } from "../../utils/theme";
 import SocialButton from "../../common/components/SocialButton";
 import { Button, Hidden } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslation } from "react-i18next";
+import { makeStyles } from "@mui/styles";
+
+const useHeaderStyles = makeStyles({
+  logoImg: {
+    marginLeft: '-3px',
+  }
+});
 
 export default function Header(props: BoxProps) {
   const { sx, ...other } = props;
 
   const { t } = useTranslation();
+
+  const classes = useHeaderStyles();
   
   const isLessThan1800 = useMediaQuery("(max-width: 1800px)");
 
@@ -30,7 +39,7 @@ export default function Header(props: BoxProps) {
       {...other}
     >
       <Link href={"https://hydroprotocol.finance"} sx={{ mt: 1 }}>
-        <img src={HYDRO} alt="Hydro" />
+        <img src={HYDRO} className={classes.logoImg} alt="Hydro" />
       </Link>
       <Box flex={1} />
       <Hidden mdDown>
