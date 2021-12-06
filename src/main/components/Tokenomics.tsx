@@ -40,14 +40,16 @@ const TaxInfoItems: TaxInfoItemType[] = [
     subtitleKey: "tokenomicsTaxInfo1Subtitle",
     caption1Key: "tokenomicsTaxInfo1Caption1",
     caption2Key: "tokenomicsTaxInfo1Caption2",
-    background: getSingleAssetSrc("Ellipse2").default,
+    background: getSingleAssetSrc("TOKENOMICSBUY").default,
+    type: "BUY"
   },
   {
     titleKey: "tokenomicsTaxInfo2Title",
     subtitleKey: "tokenomicsTaxInfo2Subtitle",
     caption1Key: "tokenomicsTaxInfo2Caption1",
     caption2Key: "tokenomicsTaxInfo2Caption2",
-    background: getSingleAssetSrc("Ellipse1").default,
+    background: getSingleAssetSrc("TOKENOMICSSELL").default,
+    type: "SELL"
   },
 ];
 
@@ -69,6 +71,7 @@ type TaxInfoItemType = {
   caption1Key: string;
   caption2Key: string;
   background: string;
+  type: string;
 };
 
 function InfoItem(props: { item: InfoItemType } & BoxProps) {
@@ -143,11 +146,27 @@ function TaxInfoItem(props: { item: TaxInfoItemType } & BoxProps) {
 
   const { t } = useTranslation();
 
+  const sellTaxProps = {
+    backgroundPosition: "2px 66px",
+    paddingTop: "55px",
+    paddingBottom: "62px",
+    paddingRight: "34px"
+  };
+
+  const buyTaxProps = {
+    backgroundPosition: "0px -1px",
+    paddingTop: "54px",
+    paddingBottom: "28px",
+    paddingRight: "32px"
+  };
+
   return (
     <Box
       sx={{
         backgroundImage: `url(${item.background})`,
-        backgroundSize: "100% 100%",
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat" ,
+        ... item.type === "BUY" ? buyTaxProps : sellTaxProps,
         width: "250px",
         height: "258px",
         display: "flex",
