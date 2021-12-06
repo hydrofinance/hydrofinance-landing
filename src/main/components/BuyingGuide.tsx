@@ -26,6 +26,7 @@ const Steps: StepItemType[] = [
   {
     titleKey: "buyingGuideStep4Title",
     descriptionKey: "buyingGuideStep4Description",
+    transDescription: true,
   },
   {
     titleKey: "buyingGuideStep5Title",
