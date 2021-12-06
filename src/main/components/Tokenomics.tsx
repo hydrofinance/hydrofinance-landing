@@ -221,7 +221,13 @@ function InfoData(props: { imageSrc: string; title: string; text: string }) {
       >
         <img src={imageSrc} style={{ width: 40, height: 40 }} alt={title} />
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column", marginTop: "25px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "25px",
+        }}
+      >
         <Typography variant="subtitle2">{title}</Typography>
         <Typography
           variant="body1"

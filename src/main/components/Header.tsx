@@ -5,7 +5,6 @@ import HYDRO from "../../assets/HYDRO.svg";
 import { defaultContentPadding } from "../../utils/theme";
 import SocialButton from "../../common/components/SocialButton";
 import { Button, Hidden } from "@mui/material";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@mui/styles";
 
@@ -22,18 +21,16 @@ export default function Header(props: BoxProps) {
 
   const classes = useHeaderStyles();
 
-  const isLessThan1800 = useMediaQuery("(max-width: 1800px)");
-
   return (
     <Box
       sx={{
-        ...(isLessThan1800 ? defaultContentPadding : {}),
         display: "flex",
         flexDirection: "row",
         flexFlow: "row wrap",
         alignItems: "center",
         minHeight: 76,
         zIndex: "1000",
+        ...defaultContentPadding,
         ...sx,
       }}
       {...other}

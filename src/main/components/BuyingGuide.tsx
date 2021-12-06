@@ -130,18 +130,20 @@ export default function BuyingGuide() {
   const { t } = useTranslation();
 
   return (
-    <Box
-      sx={{
-        backgroundSize: {
-          sx: "auto 100%",
-          lg: "100% 100%",
-        },
-        display: "flex",
-        justifyContent: "center",
-        ...defaultContentPadding,
-      }}
-    >
-      <SectionBox>
+    <SectionBox>
+      <Box
+        sx={{
+          backgroundSize: {
+            sx: "auto 100%",
+            lg: "100% 100%",
+          },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          width: "100%",
+          ...defaultContentPadding,
+        }}
+      >
         <FancyDivider />
         <Grid container>
           <Grid
@@ -181,7 +183,7 @@ export default function BuyingGuide() {
             {t("copyright")}
           </Typography>
         </Box>
-      </SectionBox>
-    </Box>
+      </Box>
+    </SectionBox>
   );
 }

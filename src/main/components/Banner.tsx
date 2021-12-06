@@ -69,33 +69,35 @@ export default function Banner() {
         justifyContent: "center",
       }}
     >
-      <SectionBox
-        sx={{
-          ...defaultContentPadding,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          height: "100%",
-        }}
-      >
-        <Typography variant="body1" sx={textShadow}>
-          {t("welcomeTo")}
-        </Typography>
-        <Box>
-          <img
-            style={{ maxWidth: "100%" }}
-            className={classes.logoImg}
-            src={HYDROLANDING}
-            alt="Hydro"
-          />
-        </Box>
-        <Typography
-          variant="subtitle2"
-          sx={{ mt: "-5px", ...textShadow, lineHeight: "18.75px" }}
+      <SectionBox>
+        <Box
+          sx={{
+            ...defaultContentPadding,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "100%",
+            width: "100%",
+          }}
         >
-          {t("hydroDescription")}
-        </Typography>
-        {/* <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+          <Typography variant="body1" sx={textShadow}>
+            {t("welcomeTo")}
+          </Typography>
+          <Box>
+            <img
+              style={{ maxWidth: "100%" }}
+              className={classes.logoImg}
+              src={HYDROLANDING}
+              alt="Hydro"
+            />
+          </Box>
+          <Typography
+            variant="subtitle2"
+            sx={{ mt: "-5px", ...textShadow, lineHeight: "18.75px" }}
+          >
+            {t("hydroDescription")}
+          </Typography>
+          {/* <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
           <TextField
             disabled
             InputProps={{
@@ -123,33 +125,34 @@ export default function Banner() {
             {t("Copy")}
           </Button>
         </Box> */}
-        <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
-          <Button
-            variant="outlined"
-            color="secondary"
-            sx={{
-              fontSize: 14,
-              fontWeight: 500,
-              pl: 3,
-              pr: 3,
-            }}
-            disabled
-          >
-            {t("buyNow")}
-          </Button>
-          <Button
-            variant="text"
-            color="secondary"
-            sx={{
-              fontSize: 16,
-              fontWeight: 500,
-              pl: 3,
-              pr: 3,
-            }}
-            disabled
-          >
-            {t("liveChart")}
-          </Button>
+          <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              sx={{
+                fontSize: 14,
+                fontWeight: 500,
+                pl: 3,
+                pr: 3,
+              }}
+              disabled
+            >
+              {t("buyNow")}
+            </Button>
+            <Button
+              variant="text"
+              color="secondary"
+              sx={{
+                fontSize: 16,
+                fontWeight: 500,
+                pl: 3,
+                pr: 3,
+              }}
+              disabled
+            >
+              {t("liveChart")}
+            </Button>
+          </Box>
         </Box>
       </SectionBox>
     </Box>

@@ -11,6 +11,7 @@ export const defaultContentPadding = {
     md: "5%",
     xl: "10%",
   },
+  boxSizing: "border-box" as "border-box" | "content-box",
 };
 
 export const textShadow = {
