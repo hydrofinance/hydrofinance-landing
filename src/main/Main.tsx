@@ -9,7 +9,6 @@ import Tokenomics from "./components/Tokenomics";
 import BuyingGuide from "./components/BuyingGuide";
 
 export default function Main() {
-  
   const isLessThan1800 = useMediaQuery("(max-width: 1800px)");
 
   return (
@@ -24,18 +23,19 @@ export default function Main() {
         alignItems: "center",
       }}
     >
-      <SectionBox sx={{ 
-        position: "absolute",
-        top: 0,
-        ... isLessThan1800 ? { maxWidth: "100%" } : {} 
+      <SectionBox
+        sx={{
+          position: "absolute",
+          top: 0,
+          ...(isLessThan1800 ? { maxWidth: "100%" } : {}),
         }}
       >
         <Header />
       </SectionBox>
       <Banner />
-      {/* <AboutUs />
+      <AboutUs />
       <Tokenomics />
-      <BuyingGuide /> */}
+      <BuyingGuide />
     </Box>
   );
 }

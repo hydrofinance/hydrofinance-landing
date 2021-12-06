@@ -11,8 +11,8 @@ import { makeStyles } from "@mui/styles";
 
 const useHeaderStyles = makeStyles({
   logoImg: {
-    marginLeft: '-3px',
-  }
+    marginLeft: "-3px",
+  },
 });
 
 export default function Header(props: BoxProps) {
@@ -21,13 +21,13 @@ export default function Header(props: BoxProps) {
   const { t } = useTranslation();
 
   const classes = useHeaderStyles();
-  
+
   const isLessThan1800 = useMediaQuery("(max-width: 1800px)");
 
   return (
     <Box
       sx={{
-        ... isLessThan1800 ? defaultContentPadding : {},
+        ...(isLessThan1800 ? defaultContentPadding : {}),
         display: "flex",
         flexDirection: "row",
         flexFlow: "row wrap",

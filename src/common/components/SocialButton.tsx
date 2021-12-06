@@ -39,7 +39,7 @@ export default function MoreMenu() {
       </Hidden>
       <Hidden mdUp>
         <IconButton onClick={handleClick}>
-          <img src={MenuIcon} />
+          <img src={MenuIcon} alt="Social Menu"/>
         </IconButton>
       </Hidden>
       <Popover

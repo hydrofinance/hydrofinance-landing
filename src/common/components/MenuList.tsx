@@ -23,7 +23,10 @@ export default function MenuList(props: { isMobile: boolean }) {
             href={eachData.redirectTo}
           >
             <ListItemIcon sx={{ minWidth: 40 }}>
-              <img src={getSingleAssetSrc(eachData.icon).default} />
+              <img
+                src={getSingleAssetSrc(eachData.icon).default}
+                alt={eachData.primaryText}
+              />
             </ListItemIcon>
             <ListItemText
               primary={t(eachData.primaryText)}

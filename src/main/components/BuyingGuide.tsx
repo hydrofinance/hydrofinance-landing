@@ -33,7 +33,6 @@ const Steps: StepItemType[] = [
   },
 ];
 
-
 type StepItemType = {
   titleKey: string;
   descriptionKey: string;
@@ -63,7 +62,7 @@ function StepItem(props: { item: StepItemType; stepNo: Number } & BoxProps) {
         flexDirection: "row",
         display: "flex",
         marginBottom: "10px",
-        ... borderGradientStyle,
+        ...borderGradientStyle,
       }}
       sx={{ padding: 1, paddingLeft: 2, ...(sx || {}) }}
       {...other}
@@ -91,11 +90,19 @@ function StepItem(props: { item: StepItemType; stepNo: Number } & BoxProps) {
         >
           {t(titleKey)}
         </Typography>
-        <Typography variant="body2" style={{ fontSize: "12px", lineHeight: "1.2" }}>
+        <Typography
+          variant="body2"
+          style={{ fontSize: "12px", lineHeight: "1.2" }}
+        >
           {transDescription ? (
             <Trans i18nKey={descriptionKey}>
               Part0
-              <a target="_blank" href="https://app.rubic.exchange/?fromChain=BSC&toChain=MOONRIVER&from=BNB&to=MOVR" style={{ color: "#40B3E0", textDecoration: "none" }}>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://app.rubic.exchange/?fromChain=BSC&toChain=MOONRIVER&from=BNB&to=MOVR"
+                style={{ color: "#40B3E0", textDecoration: "none" }}
+              >
                 Part1
               </a>
               Part2
@@ -110,8 +117,6 @@ function StepItem(props: { item: StepItemType; stepNo: Number } & BoxProps) {
 }
 
 function Info() {
-  const { t } = useTranslation();
-
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       {Steps.map((item, i) => (
@@ -122,7 +127,6 @@ function Info() {
 }
 
 export default function BuyingGuide() {
-
   const { t } = useTranslation();
 
   return (
@@ -135,37 +139,47 @@ export default function BuyingGuide() {
         display: "flex",
         justifyContent: "center",
         ...defaultContentPadding,
-
       }}
     >
       <SectionBox>
-        <FancyDivider/>
-        <Grid
-          container 
-        
-        >
-          <Grid item xs={12} md={3} sx={{display: "flex", flexDirection: "column"}}>
+        <FancyDivider />
+        <Grid container>
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{ display: "flex", flexDirection: "column" }}
+          >
             <BuyingGuideDescription />
           </Grid>
-          <Grid item xs={12} md={9} sx={{display: "flex", flexDirection: "column"}}>
-            <Grid item xs={12} md={10} sx= {{ml: "auto", mr: "auto"}}>
+          <Grid
+            item
+            xs={12}
+            md={9}
+            sx={{ display: "flex", flexDirection: "column" }}
+          >
+            <Grid item xs={12} md={10} sx={{ ml: "auto", mr: "auto" }}>
               <Info />
             </Grid>
           </Grid>
         </Grid>
-        <FancyDivider sx={{
+        <FancyDivider
+          sx={{
             marginBottom: "10px",
-          }}/>
-        <Box 
+          }}
+        />
+        <Box
           sx={{
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            mb: "20px"
+            mb: "20px",
           }}
         >
           <Typography variant="h3">{t("hydro")}</Typography>
-          <Typography variant="body2" sx= {{ ml: "12px"}}>{t("copyright")}</Typography>
+          <Typography variant="body2" sx={{ ml: "12px" }}>
+            {t("copyright")}
+          </Typography>
         </Box>
       </SectionBox>
     </Box>

@@ -1,5 +1,4 @@
 import { Button, Typography } from "@mui/material";
-import TextField from "@mui/material/TextField";
 import { Box } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -38,25 +37,25 @@ const useStyles = makeStyles({
     },
   },
   logoImg: {
-    marginLeft: '-3px',
-  }
+    marginLeft: "-3px",
+  },
 });
 
 export default function Banner() {
   const { t } = useTranslation();
-  const hydroContract = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+  // const hydroContract = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   const classes = useStyles();
 
-  const handleOnCopy = () => {
-    navigator.clipboard.writeText(hydroContract);
-  };
+  // const handleOnCopy = () => {
+  //   navigator.clipboard.writeText(hydroContract);
+  // };
   return (
     <Box
       sx={{
         backgroundImage: `url(${getSingleAssetSrc("LANDING").default})`,
         backgroundPositionX: {
           xs: "left",
-          lg: "center"
+          lg: "center",
         },
         backgroundRepeat: "no-repeat",
         backgroundSize: {
@@ -83,9 +82,17 @@ export default function Banner() {
           {t("welcomeTo")}
         </Typography>
         <Box>
-          <img style={{ maxWidth: "100%" }} className={classes.logoImg} src={HYDROLANDING} alt="Hydro" />
+          <img
+            style={{ maxWidth: "100%" }}
+            className={classes.logoImg}
+            src={HYDROLANDING}
+            alt="Hydro"
+          />
         </Box>
-        <Typography variant="subtitle2" sx={{ mt: "-5px", ...textShadow, lineHeight: "18.75px" }}>
+        <Typography
+          variant="subtitle2"
+          sx={{ mt: "-5px", ...textShadow, lineHeight: "18.75px" }}
+        >
           {t("hydroDescription")}
         </Typography>
         {/* <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
