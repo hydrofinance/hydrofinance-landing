@@ -99,7 +99,7 @@ export default function Banner() {
             {t("hydroDescription")}
           </Typography>
           <Box sx={{ width: "50%" }}>
-            <AddressField address="0xaC1fD1ECc463A7d2CCA77006E314D645B4766E9E" />
+            <AddressField address="0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F" />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
             <Button
@@ -111,9 +111,8 @@ export default function Banner() {
                 pl: 3,
                 pr: 3,
               }}
-              href="https://www.huckleberry.finance/#/swap?outputCurrency=TODO"
+              href="https://www.huckleberry.finance/#/swap?outputCurrency=0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F"
               target="_blank"
-              disabled
             >
               {t("buyNow")}
             </Button>
@@ -126,7 +125,8 @@ export default function Banner() {
                 pl: 3,
                 pr: 3,
               }}
-              disabled
+              href="https://www.huckleberry.finance/#/swap?outputCurrency=0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F"
+              target="_blank"
             >
               {t("liveChart")}
             </Button>

@@ -17,7 +17,7 @@ const InfoItems: InfoItemType[] = [
   {
     titleKey: "tokenomicsInfo1Title",
     descriptionKey: "tokenomicsInfo1Description",
-    // links: [{ textKey: "tokenomicsInfo1Link", url: "https://TODO" }],
+    links: [{ textKey: "tokenomicsInfo1Link", url: "https://moonriver.moonscan.io/address/0x36A58BEd6347DAE855D4B5E29d21A93E1dE66450" }],
   },
   {
     titleKey: "tokenomicsInfo2Title",
@@ -27,10 +27,12 @@ const InfoItems: InfoItemType[] = [
     titleKey: "tokenomicsInfo3Title",
     descriptionKey: "tokenomicsInfo3Description",
     transDescription: true,
-    // links: [
-    //   { textKey: "tokenomicsInfo3Link", url: "https://TODO" },
-    //   { textKey: "tokenomicsInfo3Link", url: "https://TODO" },
-    // ],
+    links: [
+      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x22b32f4743364AAEd06EDeE8bb7131e43BCc4F71" },
+      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x261A5C7389990fA233351295DE5865ddf783F3Ba" },
+      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x1638e402a06c454B8426D987079E908dfC106409" },
+      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x56653Ed8BaB5d927dA8E7FdD137509BB62dc5E37" },
+    ],
   },
 ];
 
