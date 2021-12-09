@@ -125,7 +125,7 @@ export default function Banner() {
                 pl: 3,
                 pr: 3,
               }}
-              href="https://www.huckleberry.finance/#/swap?outputCurrency=0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F"
+              href="https://dexscreener.com/moonriver/0xa7324c8c487fda048363386181b3f7c57ba6263c"
               target="_blank"
             >
               {t("liveChart")}
