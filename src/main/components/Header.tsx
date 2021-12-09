@@ -66,7 +66,7 @@ export default function Header(props: BoxProps) {
       >
         {t("claimAirdrop")}
       </Button>
-      <ClaimAirDrop isOpen={isModalOpen} closeModalCallback={closeModalCallback}/>
+      {/* <ClaimAirDrop isOpen={isModalOpen} closeModalCallback={closeModalCallback}/> */}
       <Hidden mdUp>
         <Box sx={{ ml: 2 }} />
         <SocialButton />
