@@ -58,6 +58,10 @@
     "buyingGuideStep5Title": "HODL!",
     "buyingGuideStep5Description": "All that's left now is to HODL and see your rewards grow from reflections!",
     "buyingGuideContractTitle": "$water Moonriver Contract Address",
-    "copyright": "Copyright © 2021 HYDRO PROTOCOL"
+    "copyright": "Copyright © 2021 HYDRO PROTOCOL",
+    "copy": "Copy",
+    "check": "Check",
+    "claimAirdropClaimToWallet": "Claim to the connected wallet:",
+    "airdropStarts": "Airdrop starts at:"
   }
 }

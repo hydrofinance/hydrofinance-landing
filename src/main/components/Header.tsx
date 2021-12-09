@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "@mui/material/Link";
 import Box, { BoxProps } from "@mui/material/Box";
 import HYDRO from "../../assets/HYDRO.svg";
@@ -7,6 +7,7 @@ import SocialButton from "../../common/components/SocialButton";
 import { Button, Hidden } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@mui/styles";
+import ClaimAirDrop from "./ClaimAirDrop";
 
 const useHeaderStyles = makeStyles({
   logoImg: {
@@ -16,11 +17,19 @@ const useHeaderStyles = makeStyles({
 
 export default function Header(props: BoxProps) {
   const { sx, ...other } = props;
-
+  const [isModalOpen, setModalOpen] = useState(false);
   const { t } = useTranslation();
 
   const classes = useHeaderStyles();
 
+  const handleClaimAirdrop = () => {
+    setModalOpen(true);
+  };
+
+  const closeModalCallback = () => {
+    setModalOpen(false);
+  }
+  
   return (
     <Box
       sx={{
@@ -46,6 +55,7 @@ export default function Header(props: BoxProps) {
       <Button
         variant="outlined"
         color="secondary"
+        onClick={handleClaimAirdrop}
         sx={{
           width: {
             sx: "100px",
@@ -53,10 +63,10 @@ export default function Header(props: BoxProps) {
           },
           backgroundColor: "#ffffff33",
         }}
-        disabled
       >
         {t("claimAirdrop")}
       </Button>
+      <ClaimAirDrop isOpen={isModalOpen} closeModalCallback={closeModalCallback}/>
       <Hidden mdUp>
         <Box sx={{ ml: 2 }} />
         <SocialButton />

@@ -7,6 +7,7 @@ import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HYDROLANDING from "../../assets/HYDROLANDING.svg";
 import SectionBox from "../../common/components/SectionBox";
+import CopyClipboard from "../../common/components/CopyClipboard";
 
 const useStyles = makeStyles({
   input: {
@@ -125,6 +126,9 @@ export default function Banner() {
             {t("Copy")}
           </Button>
         </Box> */}
+          <Box sx={{ width: "50%", }}>
+            <CopyClipboard />
+          </Box>
           <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
             <Button
               variant="outlined"
