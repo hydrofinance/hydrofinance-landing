@@ -7,7 +7,7 @@ import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HYDROLANDING from "../../assets/HYDROLANDING.svg";
 import SectionBox from "../../common/components/SectionBox";
-import CopyClipboard from "../../common/components/CopyClipboard";
+import AddressField from "../../common/components/AddressField";
 
 const useStyles = makeStyles({
   input: {
@@ -98,36 +98,8 @@ export default function Banner() {
           >
             {t("hydroDescription")}
           </Typography>
-          {/* <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
-          <TextField
-            disabled
-            InputProps={{
-              className: ` ${classes.input} ${
-                isMobileorTab && classes.mobileInput
-              }`,
-            }}
-            fullWidth
-            defaultValue={hydroContract}
-            id="fullWidth"
-          />
-          <Button
-            variant="outlined"
-            color="secondary"
-            sx={{
-              fontSize: 14,
-              fontWeight: 500,
-              pl: 3,
-              pr: 3,
-              height: { xs: "30px", md: "48px" },
-            }}
-            className={classes.button}
-            onClick={handleOnCopy}
-          >
-            {t("Copy")}
-          </Button>
-        </Box> */}
-          <Box sx={{ width: "50%", }}>
-            <CopyClipboard />
+          <Box sx={{ width: "50%" }}>
+            <AddressField address="0xaC1fD1ECc463A7d2CCA77006E314D645B4766E9E" />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
             <Button
@@ -139,6 +111,8 @@ export default function Banner() {
                 pl: 3,
                 pr: 3,
               }}
+              href="https://www.huckleberry.finance/#/swap?outputCurrency=TODO"
+              target="_blank"
               disabled
             >
               {t("buyNow")}

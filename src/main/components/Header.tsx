@@ -28,8 +28,8 @@ export default function Header(props: BoxProps) {
 
   const closeModalCallback = () => {
     setModalOpen(false);
-  }
-  
+  };
+
   return (
     <Box
       sx={{
@@ -63,10 +63,14 @@ export default function Header(props: BoxProps) {
           },
           backgroundColor: "#ffffff33",
         }}
+        disabled
       >
         {t("claimAirdrop")}
       </Button>
-      {/* <ClaimAirDrop isOpen={isModalOpen} closeModalCallback={closeModalCallback}/> */}
+      <ClaimAirDrop
+        isOpen={isModalOpen}
+        closeModalCallback={closeModalCallback}
+      />
       <Hidden mdUp>
         <Box sx={{ ml: 2 }} />
         <SocialButton />

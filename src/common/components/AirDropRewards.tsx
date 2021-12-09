@@ -2,9 +2,17 @@ import { Box, Typography, Button } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import Telegram from "../../assets/telegram-plane.svg";
 import Twitter from "../../assets/TWITTER.svg";
+import { useFetchPendingClaim } from "../../main/redux/fetchPendingClaim";
 
 export default function AirdDropRewards() {
   const { t } = useTranslation();
+
+  const { userInfo } = useFetchPendingClaim();
+
+  if (!userInfo) {
+    return null;
+  }
+
   return (
     <Box>
       <Box
@@ -35,7 +43,7 @@ export default function AirdDropRewards() {
             variant="subtitle1"
             sx={{ color: "#40B3E0", display: "inline" }}
           >
-            1,000,000,000
+            {userInfo.claimedAmount.toFormat()}
           </Typography>
           <span
             style={{
@@ -84,6 +92,8 @@ export default function AirdDropRewards() {
             pr: 3,
             paddingLeft: "20px",
           }}
+          href="https://t.me/HydroProtocolOfficial"
+          target="_blank"
         >
           <img
             src={Telegram}
@@ -106,6 +116,8 @@ export default function AirdDropRewards() {
             paddingLeft: "20px",
             pr: 3,
           }}
+          href="https://twitter.com/H2O_Protocol"
+          target="_blank"
         >
           <img
             src={Twitter}

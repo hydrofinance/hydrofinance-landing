@@ -31,7 +31,10 @@
     "typescript-fsa": "^3.0.0",
     "typescript-fsa-reducers": "^1.2.2",
     "typescript-fsa-redux-thunk": "^2.10.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "web3": "^1.6.1",
+    "web3-utils": "^1.6.1",
+    "web3modal": "^1.9.4"
   },
   "scripts": {
     "start": "react-scripts start",

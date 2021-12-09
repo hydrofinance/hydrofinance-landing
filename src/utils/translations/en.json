@@ -61,7 +61,17 @@
     "copyright": "Copyright © 2021 HYDRO PROTOCOL",
     "copy": "Copy",
     "check": "Check",
-    "claimAirdropClaimToWallet": "Claim to the connected wallet:",
-    "airdropStarts": "Airdrop starts at:"
+    "airdropClaimToWallet": "Connected wallet:",
+    "airdropRewardsAvailable": "Rewards Available",
+    "airdropStarts": "Airdrop claim period begins:",
+    "airdropEnds": "Airdrop claim period ends:",
+    "airdropClaim": "Claim",
+    "airdropClaimSuccess": "Claim success",
+    "airdropClaimError": "Claim error: {{error}}",
+    "airdropAlreadyStarted": "Already started!",
+    "connectToNetwork": "Connect to Network",
+    "connectToNetworkInfo": "You need to connect to Moonriver network to proceed.",
+    "networkUnknownError": "An unknown error has occurred.",
+    "addressCopiedToClipboard": "Address copied to clipboard."
   }
 }

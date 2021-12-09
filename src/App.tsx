@@ -6,6 +6,8 @@ import { configureTranslation } from "./utils/i18n";
 import { Provider } from "react-redux";
 import configureStore from "./utils/configureStore";
 import theme from "./utils/theme";
+import SnackbarWrapper from "./common/components/SnackbarWrapper";
+import { Web3ModalContainer } from "./common/contexts/Web3ModalProvider";
 
 configureTranslation();
 
@@ -19,7 +21,11 @@ function App() {
       </Helmet>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <Main />
+          <SnackbarWrapper>
+            <Web3ModalContainer>
+              <Main />
+            </Web3ModalContainer>
+          </SnackbarWrapper>
         </ThemeProvider>
       </StyledEngineProvider>
     </Provider>
