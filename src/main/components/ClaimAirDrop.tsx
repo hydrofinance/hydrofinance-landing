@@ -89,7 +89,6 @@ export default function ClaimAirDrop(props: {
     wrapperBox: {
       width: "100%",
       backgroundRepeat: "no-repeat",
-      borderRadius: "0",
       backgroundSize: "cover",
     },
   };
