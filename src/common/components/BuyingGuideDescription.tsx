@@ -32,8 +32,11 @@ function ContractAddress() {
       >
         {t("buyingGuideContractTitle")}
       </Typography>
-      <Typography variant="body2" style={{ marginBottom: "4px" }}>
-        Contract to be confirmed
+      <Typography
+        variant="body2"
+        style={{ marginBottom: "4px", lineBreak: "anywhere" }}
+      >
+        0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F
       </Typography>
     </Box>
   );

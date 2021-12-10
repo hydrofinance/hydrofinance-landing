@@ -23,9 +23,7 @@ export const getNetworkAirdropAddress = (networkId: number) => {
     case 1287:
       return "0xaC1fD1ECc463A7d2CCA77006E314D645B4766E9E";
     default:
-      throw Error(
-        `Airdrop address not configured for network id ${networkId}`
-      );
+      throw null;
   }
 };
 

@@ -98,7 +98,14 @@ export default function Banner() {
           >
             {t("hydroDescription")}
           </Typography>
-          <Box sx={{ width: "50%" }}>
+          <Box
+            sx={{
+              width: {
+                xs: "100%",
+                md: "50%",
+              },
+            }}
+          >
             <AddressField address="0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F" />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>

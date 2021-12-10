@@ -56,6 +56,9 @@ export const fetchClaim = createAsync<FetchClaimProps, void, Error>(
     }
 
     const airdropAddress = getNetworkAirdropAddress(networkId);
+    if (!airdropAddress) {
+      return null;
+    }
 
     const contract = new web3.eth.Contract(
       airdropABI as AbiItem[],

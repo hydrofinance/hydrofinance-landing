@@ -26,6 +26,9 @@ export const fetchIsAirdropStarted = createAsync<
   }
 
   const airdropAddress = getNetworkAirdropAddress(networkId);
+  if (!airdropAddress) {
+    return false;
+  }
 
   const contract = new web3.eth.Contract(
     airdropABI as AbiItem[],

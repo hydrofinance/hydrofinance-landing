@@ -26,14 +26,17 @@ export default function AirdropDisconnected() {
   return (
     <Box
       sx={{
-        minHeight: "400px",
+        minHeight: "300px",
         maxWidth: {
           xs: "335px",
         },
-        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <Button variant="outlined" onClick={targetNetworkSetup}>
+      <Button variant="outlined" color="secondary" onClick={targetNetworkSetup}>
         {t("switchToMoonriver")}
       </Button>
     </Box>

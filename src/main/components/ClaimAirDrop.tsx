@@ -57,12 +57,6 @@ function Content() {
     return <AirdDropAvailable />;
   }
 
-  console.log(
-    "DUPA",
-    userInfo.amount.minus(userInfo.claimedAmount).toString(),
-    userInfo
-  );
-
   return userInfo.amount.minus(userInfo.claimedAmount).isZero() ? (
     <AirdDropRewards />
   ) : (
