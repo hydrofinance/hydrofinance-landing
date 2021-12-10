@@ -17,7 +17,12 @@ const InfoItems: InfoItemType[] = [
   {
     titleKey: "tokenomicsInfo1Title",
     descriptionKey: "tokenomicsInfo1Description",
-    links: [{ textKey: "tokenomicsInfo1Link", url: "https://moonriver.moonscan.io/address/0x36A58BEd6347DAE855D4B5E29d21A93E1dE66450" }],
+    links: [
+      {
+        textKey: "tokenomicsInfo1Link",
+        url: "https://moonriver.moonscan.io/address/0x36A58BEd6347DAE855D4B5E29d21A93E1dE66450",
+      },
+    ],
   },
   {
     titleKey: "tokenomicsInfo2Title",
@@ -28,10 +33,22 @@ const InfoItems: InfoItemType[] = [
     descriptionKey: "tokenomicsInfo3Description",
     transDescription: true,
     links: [
-      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x22b32f4743364AAEd06EDeE8bb7131e43BCc4F71" },
-      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x261A5C7389990fA233351295DE5865ddf783F3Ba" },
-      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x1638e402a06c454B8426D987079E908dfC106409" },
-      { textKey: "tokenomicsInfo3Link", url: "https://moonriver.moonscan.io/address/0x56653Ed8BaB5d927dA8E7FdD137509BB62dc5E37" },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x22b32f4743364AAEd06EDeE8bb7131e43BCc4F71",
+      },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x261A5C7389990fA233351295DE5865ddf783F3Ba",
+      },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x1638e402a06c454B8426D987079E908dfC106409",
+      },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x56653Ed8BaB5d927dA8E7FdD137509BB62dc5E37",
+      },
     ],
   },
 ];
@@ -43,7 +60,7 @@ const TaxInfoItems: TaxInfoItemType[] = [
     caption1Key: "tokenomicsTaxInfo1Caption1",
     caption2Key: "tokenomicsTaxInfo1Caption2",
     background: getSingleAssetSrc("TOKENOMICSBUY").default,
-    type: "BUY"
+    type: "BUY",
   },
   {
     titleKey: "tokenomicsTaxInfo2Title",
@@ -51,7 +68,7 @@ const TaxInfoItems: TaxInfoItemType[] = [
     caption1Key: "tokenomicsTaxInfo2Caption1",
     caption2Key: "tokenomicsTaxInfo2Caption2",
     background: getSingleAssetSrc("TOKENOMICSSELL").default,
-    type: "SELL"
+    type: "SELL",
   },
 ];
 
@@ -152,14 +169,14 @@ function TaxInfoItem(props: { item: TaxInfoItemType } & BoxProps) {
     backgroundPosition: "2px 66px",
     paddingTop: "55px",
     paddingBottom: "62px",
-    paddingRight: "34px"
+    paddingRight: "34px",
   };
 
   const buyTaxProps = {
     backgroundPosition: "0px -1px",
     paddingTop: "54px",
     paddingBottom: "28px",
-    paddingRight: "32px"
+    paddingRight: "32px",
   };
 
   return (
@@ -167,8 +184,8 @@ function TaxInfoItem(props: { item: TaxInfoItemType } & BoxProps) {
       sx={{
         backgroundImage: `url(${item.background})`,
         backgroundSize: "contain",
-        backgroundRepeat: "no-repeat" ,
-        ... item.type === "BUY" ? buyTaxProps : sellTaxProps,
+        backgroundRepeat: "no-repeat",
+        ...(item.type === "BUY" ? buyTaxProps : sellTaxProps),
         width: "250px",
         height: "258px",
         display: "flex",

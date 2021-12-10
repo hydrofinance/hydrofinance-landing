@@ -63,7 +63,6 @@ export default function Header(props: BoxProps) {
           },
           backgroundColor: "#ffffff33",
         }}
-        disabled
       >
         {t("claimAirdrop")}
       </Button>

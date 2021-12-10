@@ -7,7 +7,7 @@ import { useConnectWallet } from "../redux/connectWallet";
 
 export default function AirdropDisconnected() {
   const { t } = useTranslation();
-  const { connectWallet, web3, address, connected } = useConnectWallet();
+  const { connectWallet } = useConnectWallet();
   const web3Modal = React.useContext(Web3ModalProvider);
   const connectWalletCallback = React.useCallback(() => {
     web3Modal && connectWallet(web3Modal);

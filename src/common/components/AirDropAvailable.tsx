@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
+import BigNumber from "bignumber.js";
 import { useTranslation } from "react-i18next";
 import { useFetchClaim } from "../../main/redux/fetchClaim";
 import { useFetchIsAirdropStarted } from "../../main/redux/fetchIsAirdropStarted";
@@ -48,6 +49,17 @@ export default function AirdDropAvailable() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchIsAirdropStarted]);
 
+  let userInfoValue = userInfo?.amount;
+  if (userInfoValue) {
+    if (userInfoValue.isLessThan(new BigNumber(2))) {
+      userInfoValue = userInfoValue.decimalPlaces(12, BigNumber.ROUND_DOWN);
+    } else if (userInfoValue.isLessThan(new BigNumber(10000))) {
+      userInfoValue = userInfoValue.decimalPlaces(6, BigNumber.ROUND_DOWN);
+    } else {
+      userInfoValue = userInfoValue.decimalPlaces(3, BigNumber.ROUND_DOWN);
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -87,7 +99,7 @@ export default function AirdDropAvailable() {
             variant="subtitle1"
             sx={{ color: "#40B3E0", display: "inline" }}
           >
-            {userInfo?.amount.toFormat() || "-"}
+            {userInfoValue?.toFormat() || "-"}
           </Typography>
           <span
             style={{
