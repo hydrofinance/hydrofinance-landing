@@ -1,4 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
+import BigNumber from "bignumber.js";
 import { useTranslation } from "react-i18next";
 import Telegram from "../../assets/telegram-plane.svg";
 import Twitter from "../../assets/TWITTER.svg";
@@ -11,6 +12,15 @@ export default function AirdDropRewards() {
 
   if (!userInfo) {
     return null;
+  }
+
+  let userInfoValue = userInfo.claimedAmount;
+  if (userInfoValue.isLessThan(new BigNumber(2))) {
+    userInfoValue = userInfoValue.decimalPlaces(12, BigNumber.ROUND_DOWN);
+  } else if (userInfoValue.isLessThan(new BigNumber(10000))) {
+    userInfoValue = userInfoValue.decimalPlaces(6, BigNumber.ROUND_DOWN);
+  } else {
+    userInfoValue = userInfoValue.decimalPlaces(3, BigNumber.ROUND_DOWN);
   }
 
   return (
@@ -43,7 +53,7 @@ export default function AirdDropRewards() {
             variant="subtitle1"
             sx={{ color: "#40B3E0", display: "inline" }}
           >
-            {userInfo.claimedAmount.toFormat()}
+            {userInfoValue.toFormat()}
           </Typography>
           <span
             style={{
