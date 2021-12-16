@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
-import HydroLandingImage from "../../assets/HydroLanding.svg";
+import HydroLandingImage from "../../assets/HYDROLANDING.svg";
 import SectionBox from "../../common/components/SectionBox";
 import AddressField from "../../common/components/AddressField";
 import PriceStats from "./PriceStats";
