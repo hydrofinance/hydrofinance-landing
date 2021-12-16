@@ -120,7 +120,7 @@ function InfoItem(props: { item: InfoItemType } & BoxProps) {
             <Link
               href={link.url}
               color="secondary"
-              key={link.textKey}
+              key={link.url}
               target="_blank"
               sx={{
                 display: "flex",

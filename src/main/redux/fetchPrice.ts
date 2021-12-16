@@ -33,8 +33,6 @@ export const fetchPrice = createAsync<
     data.pair.token0.symbol === "H2O" ? data.pair.reserve0 : data.pair.reserve1
   );
 
-  debugger;
-
   const lpValue = h2oPrice.multipliedBy(h2oReserve).multipliedBy(2);
   return {
     h2oPrice: h2oPrice.toString(),
