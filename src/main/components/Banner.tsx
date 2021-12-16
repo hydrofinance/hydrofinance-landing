@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
 import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
-import HYDROLANDING from "../../assets/HYDROLANDING.svg";
+import HydroLandingImage from "../../assets/HydroLanding.svg";
 import SectionBox from "../../common/components/SectionBox";
 import AddressField from "../../common/components/AddressField";
+import PriceStats from "./PriceStats";
 
 const useStyles = makeStyles({
   input: {
@@ -44,12 +45,8 @@ const useStyles = makeStyles({
 
 export default function Banner() {
   const { t } = useTranslation();
-  // const hydroContract = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
   const classes = useStyles();
 
-  // const handleOnCopy = () => {
-  //   navigator.clipboard.writeText(hydroContract);
-  // };
   return (
     <Box
       sx={{
@@ -74,6 +71,7 @@ export default function Banner() {
         <Box
           sx={{
             ...defaultContentPadding,
+            position: "relative",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -81,20 +79,35 @@ export default function Banner() {
             width: "100%",
           }}
         >
-          <Typography variant="body1" sx={textShadow}>
-            {t("welcomeTo")}
-          </Typography>
-          <Box>
-            <img
+          <Box sx={{ position: "relative", mt: "-140px" }}>
+            <Typography
+              variant="body1"
+              sx={{ position: "absolute", top: "37%", left: 0, ...textShadow }}
+            >
+              {t("welcomeTo")}
+            </Typography>
+            <Box
+              component="img"
               style={{ maxWidth: "100%" }}
               className={classes.logoImg}
-              src={HYDROLANDING}
+              src={HydroLandingImage}
               alt="Hydro"
             />
           </Box>
           <Typography
             variant="subtitle2"
-            sx={{ mt: "-5px", ...textShadow, lineHeight: "18.75px" }}
+            sx={{
+              mt: {
+                xs: "0px",
+                md: "-5px",
+              },
+              ...textShadow,
+              lineHeight: "18.75px",
+              fontSize: {
+                xs: 16,
+                md: "inherit",
+              },
+            }}
           >
             {t("hydroDescription")}
           </Typography>
@@ -129,8 +142,9 @@ export default function Banner() {
               sx={{
                 fontSize: 16,
                 fontWeight: 500,
-                pl: 3,
-                pr: 3,
+                pl: 2,
+                pr: 2,
+                ml: 1,
               }}
               href="https://dexscreener.com/moonriver/0xa7324c8c487fda048363386181b3f7c57ba6263c"
               target="_blank"
@@ -138,6 +152,16 @@ export default function Banner() {
               {t("liveChart")}
             </Button>
           </Box>
+          <PriceStats
+            sx={{
+              position: "absolute",
+              bottom: 48,
+              left: 0,
+              right: 0,
+              width: "100%",
+              ...defaultContentPadding,
+            }}
+          />
         </Box>
       </SectionBox>
     </Box>

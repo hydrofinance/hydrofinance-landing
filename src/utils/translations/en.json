@@ -73,6 +73,10 @@
     "connectToNetworkInfo": "You need to connect to Moonriver network to proceed.",
     "networkUnknownError": "An unknown error has occurred.",
     "addressCopiedToClipboard": "Address copied to clipboard.",
-    "switchToMoonriver": "Switch to Moonriver"
+    "switchToMoonriver": "Switch to Moonriver",
+    "statsLpText": "Total Liq. H2O-FINN",
+    "statsMarketCapText": "Market Cap",
+    "statsPriceText": "Current Price",
+    "statsRewardedText": "Total Rewarded"
   }
 }

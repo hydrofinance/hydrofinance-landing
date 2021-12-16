@@ -16,6 +16,17 @@ export const getNetworkConnectors = (): Partial<ICoreOptions> => ({
 export const isValidNetworkId = (networkId: number) =>
   [1285, 1287].includes(networkId);
 
+export const getNetworkPair = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return "0xa7324C8c487fdA048363386181b3F7c57BA6263c";
+    case 1287:
+      return null;
+    default:
+      return null;
+  }
+};
+
 export const getNetworkAirdropAddress = (networkId: number) => {
   switch (networkId) {
     case 1285:
@@ -23,7 +34,29 @@ export const getNetworkAirdropAddress = (networkId: number) => {
     case 1287:
       return "0xaC1fD1ECc463A7d2CCA77006E314D645B4766E9E";
     default:
-      throw null;
+      return null;
+  }
+};
+
+export const getNetworkRewardPair = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return "0xDCd92eb568157D3c1a6b3AE53ADF18a230bc304A";
+    case 1287:
+      return null;
+    default:
+      return null;
+  }
+};
+
+export const getNetworkDistributor = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return "0xB7Cb2440b5fD5B9CbeCd7e63c4d88d497a6D22fB";
+    case 1287:
+      return null;
+    default:
+      return null;
   }
 };
 
