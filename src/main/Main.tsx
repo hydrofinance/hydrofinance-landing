@@ -24,6 +24,7 @@ export default function Main() {
         sx={{
           position: "absolute",
           top: 0,
+          zIndex: 2,
         }}
       >
         <Header />

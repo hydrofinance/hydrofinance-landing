@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -47,6 +47,8 @@ export default function Banner() {
   const { t } = useTranslation();
   const classes = useStyles();
 
+  const bigHeight = useMediaQuery('(min-height:700px)');
+
   return (
     <Box
       sx={{
@@ -61,7 +63,7 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: "100%",
+        minHeight: bigHeight ? "100%" : "700px",
         height: "100%",
         display: "flex",
         justifyContent: "center",
