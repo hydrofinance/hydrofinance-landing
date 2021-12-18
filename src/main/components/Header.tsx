@@ -53,6 +53,21 @@ export default function Header(props: BoxProps) {
         <Box sx={{ mr: 2 }} />
       </Hidden>
       <Button
+        variant="text"
+        color="secondary"
+        sx={{
+          width: {
+            xs: "120px",
+            md: "155px",
+          },
+          fontSize: 16,
+        }}
+        href="https://hydroprotocol-1.gitbook.io/hydro-protocol/"
+        target="_blank"
+      >
+        {t("docs")}
+      </Button>
+      {/* <Button
         variant="outlined"
         color="secondary"
         onClick={handleClaimAirdrop}
@@ -65,11 +80,11 @@ export default function Header(props: BoxProps) {
         }}
       >
         {t("claimAirdrop")}
-      </Button>
-      <ClaimAirDrop
+      </Button> */}
+      {/* <ClaimAirDrop
         isOpen={isModalOpen}
         closeModalCallback={closeModalCallback}
-      />
+      /> */}
       <Hidden mdUp>
         <Box sx={{ ml: 2 }} />
         <SocialButton />

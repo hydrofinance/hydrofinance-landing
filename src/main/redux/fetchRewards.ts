@@ -6,7 +6,7 @@ import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Store } from "../../utils/rootReducer";
 import {
   getNetworkDistributor,
-  getNetworkRewardPair,
+  getNetworkRewardPairs,
 } from "../../web3/getNetworkData";
 import { MainState } from "../model/reducer";
 import { huckleberryClient } from "../../apollo/client";
@@ -14,33 +14,33 @@ import { swapsQuery, SwapsQueryResult } from "../../apollo/queries";
 
 export const fetchRewards = createAsync<
   void,
-  { rewardsUSDValue: string; rewardsAmount: string } | null,
+  { rewardsUSDValue: string } | null,
   Error
 >("FETCH_REWARDS", async () => {
-  const rewardPairAddress = getNetworkRewardPair(1285);
+  const rewardPairAddresses = getNetworkRewardPairs(1285);
   const distributorAddress = getNetworkDistributor(1285);
-  if (!rewardPairAddress || !distributorAddress) {
+  if (!rewardPairAddresses || !distributorAddress) {
     return null;
   }
 
-  const { data } = await huckleberryClient.query<SwapsQueryResult>({
-    query: swapsQuery(
-      rewardPairAddress.toLowerCase(),
-      distributorAddress.toLowerCase()
-    ),
-  });
-
   let rewardUsdValue = new BigNumber(0);
-  let rewardAmount = new BigNumber(0);
+  for (let index = 0; index < rewardPairAddresses.length; index++) {
+    const rewardPairAddress = rewardPairAddresses[index];
+    const { data } = await huckleberryClient.query<SwapsQueryResult>({
+      query: swapsQuery(
+        rewardPairAddress.toLowerCase(),
+        distributorAddress.toLowerCase()
+      ),
+    });
 
-  data.swaps.forEach((s) => {
-    rewardAmount = rewardAmount.plus(new BigNumber(s.amount1Out));
-    rewardUsdValue = rewardUsdValue.plus(new BigNumber(s.amountUSD));
-  });
+    for (let dataIndex = 0; dataIndex < data.swaps.length; dataIndex++) {
+      const dataSwap = data.swaps[dataIndex];
+      rewardUsdValue = rewardUsdValue.plus(new BigNumber(dataSwap.amountUSD));
+    }
+  }
 
   return {
     rewardsUSDValue: rewardUsdValue.toString(),
-    rewardsAmount: rewardAmount.toString(),
   };
 });
 

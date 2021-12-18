@@ -38,10 +38,10 @@ export const getNetworkAirdropAddress = (networkId: number) => {
   }
 };
 
-export const getNetworkRewardPair = (networkId: number) => {
+export const getNetworkRewardPairs = (networkId: number) => {
   switch (networkId) {
     case 1285:
-      return "0xDCd92eb568157D3c1a6b3AE53ADF18a230bc304A";
+      return ["0xDCd92eb568157D3c1a6b3AE53ADF18a230bc304A", "0xa7324C8c487fdA048363386181b3F7c57BA6263c"];
     case 1287:
       return null;
     default:
