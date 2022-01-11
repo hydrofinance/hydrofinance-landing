@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { networkSetup } from "../../web3/networkSetup";
 import { useSnackbar } from "../redux/snackbar";
 
-export default function AirdropDisconnected() {
+export default function ContentInvalidNetwork() {
   const { t } = useTranslation();
   const { showSnackbar } = useSnackbar();
 

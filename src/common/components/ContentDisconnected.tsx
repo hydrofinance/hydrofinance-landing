@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Web3ModalProvider } from "../contexts/Web3ModalProvider";
 import { useConnectWallet } from "../redux/connectWallet";
 
-export default function AirdropDisconnected() {
+export default function ContentDisconnected() {
   const { t } = useTranslation();
   const { connectWallet } = useConnectWallet();
   const web3Modal = React.useContext(Web3ModalProvider);

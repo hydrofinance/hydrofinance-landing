@@ -7,7 +7,7 @@
     "buyNow": "Buy Now",
     "liveChart": "Live Chart",
     "social": "Social",
-    "docs": "Documentation",
+    "menuDocs": "Docs",
     "menuTelegram": "Telegram",
     "menuTwitter": "Twitter",
     "menuMedium": "Medium",
@@ -78,6 +78,17 @@
     "statsLpText": "Total Liq. H2O-FINN",
     "statsMarketCapText": "Market Cap",
     "statsPriceText": "Current Price",
-    "statsRewardedText": "Total Rewarded"
+    "statsRewardedText": "Total Rewarded",
+    "migrate": "Migrate",
+    "migrateNoTokens": "You don't have any tokens for migration.",
+    "migrateSuccess": "Migration success",
+    "migrateApproveSuccess": "Approve success",
+    "migrateError": "Migration error: {{error}}",
+    "migrateApproveError": "Approve error: {{error}}",
+    "migrateAmountAvailable": "Migration Available",
+    "migrateAll": "Migrate",
+    "migrateApprove": "Approve",
+    "migrateToWallet": "Connected wallet:",
+    "migrateNotAvailable": "Migration is currently not available. Please wait for announcement."
   }
 }

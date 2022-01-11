@@ -7,6 +7,7 @@ import SocialButton from "../../common/components/SocialButton";
 import { Button, Hidden } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { makeStyles } from "@mui/styles";
+import V2MigrateModal from "./V2MigrateModal";
 
 const useHeaderStyles = makeStyles({
   logoImg: {
@@ -16,18 +17,18 @@ const useHeaderStyles = makeStyles({
 
 export default function Header(props: BoxProps) {
   const { sx, ...other } = props;
-  // const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = React.useState(false);
   const { t } = useTranslation();
 
   const classes = useHeaderStyles();
 
-  // const handleClaimAirdrop = () => {
-  //   setModalOpen(true);
-  // };
+  const handleMigrate = () => {
+    setModalOpen(true);
+  };
 
-  // const closeModalCallback = () => {
-  //   setModalOpen(false);
-  // };
+  const closeModalCallback = () => {
+    setModalOpen(false);
+  };
 
   return (
     <Box
@@ -52,24 +53,9 @@ export default function Header(props: BoxProps) {
         <Box sx={{ mr: 2 }} />
       </Hidden>
       <Button
-        variant="text"
-        color="secondary"
-        sx={{
-          width: {
-            xs: "120px",
-            md: "155px",
-          },
-          fontSize: 16,
-        }}
-        href="https://hydroprotocol-1.gitbook.io/hydro-protocol/"
-        target="_blank"
-      >
-        {t("docs")}
-      </Button>
-      {/* <Button
         variant="outlined"
         color="secondary"
-        onClick={handleClaimAirdrop}
+        onClick={handleMigrate}
         sx={{
           width: {
             sx: "100px",
@@ -78,12 +64,12 @@ export default function Header(props: BoxProps) {
           backgroundColor: "#ffffff33",
         }}
       >
-        {t("claimAirdrop")}
-      </Button> */}
-      {/* <ClaimAirDrop
+        {t("migrate")}
+      </Button>
+      <V2MigrateModal
         isOpen={isModalOpen}
         closeModalCallback={closeModalCallback}
-      /> */}
+      />
       <Hidden mdUp>
         <Box sx={{ ml: 2 }} />
         <SocialButton />

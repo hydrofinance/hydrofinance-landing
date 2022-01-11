@@ -21,7 +21,40 @@ export const getNetworkPair = (networkId: number) => {
     case 1285:
       return "0xa7324C8c487fdA048363386181b3F7c57BA6263c";
     case 1287:
+      return "0x78d67A62B85533d17774037DbFE69fD5e3633d90";
+    default:
       return null;
+  }
+};
+
+export const getNetworkV1TokenAddress = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return "0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F";
+    case 1287:
+      return "0x93E737101480C503d31cbd1998Aa839AA4f0cB5C";
+    default:
+      return null;
+  }
+};
+
+export const getNetworkV2TokenAddress = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return null;
+    case 1287:
+      return "0x6D9CbfaE02fb3c34ac45fc76d5A8c00Eb65Fe102";
+    default:
+      return null;
+  }
+};
+
+export const getNetworkV2MigratorAddress = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return null;
+    case 1287:
+      return "0x2863D4d7fC5298cF9420A03a0C6219B98C61Fd98";
     default:
       return null;
   }

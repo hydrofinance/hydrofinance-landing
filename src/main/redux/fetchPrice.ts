@@ -23,6 +23,10 @@ export const fetchPrice = createAsync<
     query: pairQuery(pairAddress.toLowerCase()),
   });
 
+  if (!data || !data.pair) {
+    return null;
+  }
+
   const h2oPrice = new BigNumber(
     data.pair.token0.symbol === "H2O"
       ? data.pair.token0.tokenDayData[0].priceUSD

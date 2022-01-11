@@ -1,26 +1,17 @@
 import { Box, Typography, Button } from "@mui/material";
-import BigNumber from "bignumber.js";
 import { useTranslation } from "react-i18next";
 import Telegram from "../../assets/telegram-plane.svg";
 import Twitter from "../../assets/TWITTER.svg";
-import { useFetchPendingClaim } from "../../main/redux/fetchPendingClaim";
+import { useFetchBalance } from "../../main/redux/fetchBalance";
+import { formatToFit } from "../../utils/bignumber";
 
-export default function AirdDropRewards() {
+export default function ContentV2MigrateSuccess() {
   const { t } = useTranslation();
 
-  const { userInfo } = useFetchPendingClaim();
+  const { v1Balance } = useFetchBalance();
 
-  if (!userInfo) {
+  if (!v1Balance) {
     return null;
-  }
-
-  let userInfoValue = userInfo.claimedAmount;
-  if (userInfoValue.isLessThan(new BigNumber(2))) {
-    userInfoValue = userInfoValue.decimalPlaces(12, BigNumber.ROUND_DOWN);
-  } else if (userInfoValue.isLessThan(new BigNumber(10000))) {
-    userInfoValue = userInfoValue.decimalPlaces(6, BigNumber.ROUND_DOWN);
-  } else {
-    userInfoValue = userInfoValue.decimalPlaces(3, BigNumber.ROUND_DOWN);
   }
 
   return (
@@ -53,7 +44,7 @@ export default function AirdDropRewards() {
             variant="subtitle1"
             sx={{ color: "#40B3E0", display: "inline" }}
           >
-            {userInfoValue.toFormat()}
+            {formatToFit(v1Balance).toFormat()}
           </Typography>
           <span
             style={{
@@ -64,7 +55,7 @@ export default function AirdDropRewards() {
             }}
           >
             {" "}
-            H2O
+            HYDRO
           </span>
         </Box>
       </Box>

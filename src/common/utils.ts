@@ -25,4 +25,9 @@ export const CONTACT_ITEMS: ContactItemType[] = [
     icon: "GITHUB",
     redirectTo: "https://github.com/hydrofinance",
   },
+  {
+    primaryText: "menuDocs",
+    icon: "DOCS",
+    redirectTo: "https://hydroprotocol-1.gitbook.io/hydro-protocol/",
+  },
 ];

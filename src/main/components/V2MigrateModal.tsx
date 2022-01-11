@@ -8,34 +8,42 @@ import {
 } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Fade from "@mui/material/Fade";
-import AirdDropAvailable from "../../common/components/AirDropAvailable";
-import AirdDropRewards from "../../common/components/AirDropRewards";
 import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import close from "../../assets/close.png";
 import { useConnectWallet } from "../../common/redux/connectWallet";
 import { isValidNetworkId } from "../../web3/getNetworkData";
-import AirdropDisconnected from "../../common/components/AirdropDisconnected";
-import AirdropInvalidNetwork from "../../common/components/AirdropInvalidNetwork";
-import { useFetchPendingClaim } from "../redux/fetchPendingClaim";
+import ContentDisconnected from "../../common/components/ContentDisconnected";
+import ContentInvalidNetwork from "../../common/components/ContentInvalidNetwork";
+import { useFetchBalance } from "../redux/fetchBalance";
+import ContentV2MigrateNoTokens from "../../common/components/ContentV2MigrateNoTokens";
+import { useV2Migrate } from "../redux/v2Migrate";
+import ContentV2Migrate from "../../common/components/ContentV2Migrate";
+import ContentV2MigrateSuccess from "../../common/components/ContentV2MigrateSuccess";
+import ContentNotAvailable from "../../common/components/ContentNotAvailable";
 
 function Content() {
   const { networkId, connected } = useConnectWallet();
 
-  const { userInfo, fetchPendingClaim } = useFetchPendingClaim();
+  const { v1Balance, fetchBalance } = useFetchBalance();
+  const { migrateDone } = useV2Migrate();
 
   React.useEffect(() => {
-    fetchPendingClaim();
-  }, [fetchPendingClaim]);
+    fetchBalance();
+  }, [fetchBalance]);
 
   if (!connected) {
-    return <AirdropDisconnected />;
+    return <ContentDisconnected />;
   }
 
   const isValid = networkId ? isValidNetworkId(networkId) : null;
   if (!isValid) {
-    return <AirdropInvalidNetwork />;
+    return <ContentInvalidNetwork />;
   }
-  if (!userInfo) {
+  // Remove it after live on moonriver
+  if (networkId === 1285) {
+    return <ContentNotAvailable />;
+  }
+  if (!v1Balance) {
     return (
       <Box
         sx={{
@@ -53,18 +61,17 @@ function Content() {
       </Box>
     );
   }
-  if (userInfo.amount.isZero()) {
-    return <AirdDropAvailable />;
-  }
 
-  return userInfo.amount.minus(userInfo.claimedAmount).isZero() ? (
-    <AirdDropRewards />
-  ) : (
-    <AirdDropAvailable />
-  );
+  if (migrateDone) {
+    return <ContentV2MigrateSuccess />;
+  } else if (v1Balance.isZero()) {
+    return <ContentV2MigrateNoTokens />;
+  } else {
+    return <ContentV2Migrate />;
+  }
 }
 
-export default function ClaimAirDrop(props: {
+export default function V2MigrateModal(props: {
   isOpen: boolean;
   closeModalCallback: () => void;
 }) {
@@ -102,14 +109,11 @@ export default function ClaimAirDrop(props: {
       open={isOpen}
       onClose={handleClose}
       closeAfterTransition
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
       BackdropComponent={Backdrop}
       BackdropProps={{
         timeout: 500,
       }}
     >
-      {/* <Slide direction="up" in={isOpen} mountOnEnter unmountOnExit> */}
       <Fade in={isOpen}>
         <Box
           sx={{
@@ -124,7 +128,7 @@ export default function ClaimAirDrop(props: {
                 variant="subtitle1"
                 sx={{ mb: 2, mt: 1 }}
               >
-                Claim AirDrop
+                Migrate to V2
               </Typography>
               <img
                 src={close}
