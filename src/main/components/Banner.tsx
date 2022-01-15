@@ -6,6 +6,7 @@ import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HydroLandingImage from "../../assets/HYDROLANDING.svg";
+import DolphinImage from "../../assets/dolphin.gif";
 import SectionBox from "../../common/components/SectionBox";
 import AddressField from "../../common/components/AddressField";
 import PriceStats from "./PriceStats";
@@ -47,7 +48,7 @@ export default function Banner() {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const bigHeight = useMediaQuery('(min-height:700px)');
+  const bigHeight = useMediaQuery("(min-height:700px)");
 
   return (
     <Box
@@ -81,16 +82,35 @@ export default function Banner() {
             width: "100%",
           }}
         >
-          <Box sx={{ position: "relative", mt: "-140px" }}>
+          <Box sx={{ position: "relative", mt: "-40px" }}>
+            <Box
+              component="img"
+              sx={{
+                position: "absolute",
+                zIndex: 0,
+                width: { xs: "350px", md: "500px" },
+                right: { xs: "inherit", md: "0%", lg: "10%" },
+                left: { xs: "0%", md: "inherit" },
+                top: { xs: "-260px", md: "-160px" },
+              }}
+              src={DolphinImage}
+              alt="Dolphin"
+            />
             <Typography
               variant="body1"
-              sx={{ position: "absolute", top: "37%", left: 0, ...textShadow }}
+              sx={{
+                position: "absolute",
+                zIndex: 1,
+                top: "-27%",
+                left: 0,
+                ...textShadow,
+              }}
             >
               {t("welcomeTo")}
             </Typography>
             <Box
               component="img"
-              style={{ maxWidth: "100%" }}
+              style={{ maxWidth: "100%", zIndex: 2, position: "relative" }}
               className={classes.logoImg}
               src={HydroLandingImage}
               alt="Hydro"

@@ -128,7 +128,7 @@ export default function V2MigrateModal(props: {
                 variant="subtitle1"
                 sx={{ mb: 2, mt: 1 }}
               >
-                Migrate to V2
+                V2 Upgrade
               </Typography>
               <img
                 src={close}
