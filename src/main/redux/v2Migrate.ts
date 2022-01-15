@@ -17,7 +17,7 @@ import { ThunkDispatch } from "redux-thunk";
 import { showSnackbar } from "../../common/redux/snackbar";
 import { thunkToAction } from "typescript-fsa-redux-thunk";
 
-const approvaAllAmount = Web3.utils.toWei("10000000000000", "ether");
+const approveAllAmount = Web3.utils.toWei("10000000000", "ether");
 
 const v2MigrateAllPromise = (
   contract: any,
@@ -127,7 +127,7 @@ export const v2ApproveMigrate = createAsync<V2MigrateProps, void, Error>(
     await approveMigratePromise(
       contract,
       v2MigratorAddress,
-      new BigNumber(approvaAllAmount),
+      new BigNumber(approveAllAmount),
       address,
       dispatch
     );
@@ -205,5 +205,5 @@ export const builderHandler = (
     .case(v2ApproveMigrate.async.done, (state) => ({
       ...state,
       v2MigrateApprovePending: false,
-      v1Approval: approvaAllAmount
+      v1Approval: approveAllAmount
     }));

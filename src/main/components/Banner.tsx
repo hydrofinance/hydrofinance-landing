@@ -64,7 +64,7 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: bigHeight ? "100%" : "700px",
+        minHeight: bigHeight ? "100%" : "800px",
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -88,7 +88,7 @@ export default function Banner() {
               sx={{
                 position: "absolute",
                 zIndex: 0,
-                width: { xs: "350px", md: "500px" },
+                width: { xs: "340px", md: "500px" },
                 right: { xs: "inherit", md: "0%", lg: "10%" },
                 left: { xs: "0%", md: "inherit" },
                 top: { xs: "-260px", md: "-160px" },
