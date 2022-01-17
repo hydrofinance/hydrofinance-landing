@@ -57,7 +57,7 @@ const approveMigratePromise = (
 ) =>
   new Promise<void>((resolve, reject) => {
     contract.methods
-      .approve(spender, amount.toString())
+      .approve(spender, amount.toFixed())
       .send({ from: address })
       .on("transactionHash", function (hash: string) {
         console.log(hash);
@@ -205,5 +205,5 @@ export const builderHandler = (
     .case(v2ApproveMigrate.async.done, (state) => ({
       ...state,
       v2MigrateApprovePending: false,
-      v1Approval: approveAllAmount.toString(),
+      v1Approval: approveAllAmount.toFixed(),
     }));
