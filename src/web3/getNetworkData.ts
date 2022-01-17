@@ -43,7 +43,7 @@ export const getNetworkV2TokenAddress = (networkId: number) => {
     case 1285:
       return null;
     case 1287:
-      return "0x6D9CbfaE02fb3c34ac45fc76d5A8c00Eb65Fe102";
+      return "0x3393FA510C6F7301C6098Eb093b6e05e2a075a31";
     default:
       return null;
   }
@@ -54,7 +54,7 @@ export const getNetworkV2MigratorAddress = (networkId: number) => {
     case 1285:
       return null;
     case 1287:
-      return "0x2863D4d7fC5298cF9420A03a0C6219B98C61Fd98";
+      return "0x7f6b4895D636a7b9081fC45CCCC569bC29de492D";
     default:
       return null;
   }
