@@ -57,7 +57,7 @@ const approveMigratePromise = (
 ) =>
   new Promise<void>((resolve, reject) => {
     contract.methods
-      .approve(spender, amount)
+      .approve(spender, amount.toString())
       .send({ from: address })
       .on("transactionHash", function (hash: string) {
         console.log(hash);
