@@ -42,7 +42,7 @@ function Content() {
           ml: 1,
         }}
       >
-        {[...Array.from({ length: 5 }, (_, index) => index)].map((k) => (
+        {[...Array.from({ length: 7 }, (_, index) => index)].map((k) => (
           <Box key={k} component="li" sx={{ lineHeight: "140%" }}>
             {t(`aboutUsPoint${k + 1}`)}
           </Box>

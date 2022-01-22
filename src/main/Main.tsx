@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import SectionBox from "../common/components/SectionBox";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
+import Disclaimer from "./components/Disclaimer";
 import AboutUs from "./components/AboutUs";
 import Tokenomics from "./components/Tokenomics";
 import BuyingGuide from "./components/BuyingGuide";
@@ -30,6 +31,7 @@ export default function Main() {
         <Header />
       </SectionBox>
       <Banner />
+      <Disclaimer />
       <AboutUs />
       <Tokenomics />
       <BuyingGuide />
