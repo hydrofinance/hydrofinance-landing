@@ -1,6 +1,7 @@
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import { useMediaQuery } from "@mui/material";
 import Box, { BoxProps } from "@mui/system/Box";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import React from "react";
@@ -36,19 +37,7 @@ const InfoItems: InfoItemType[] = [
       {
         textKey: "tokenomicsInfo3Link",
         url: "https://moonriver.moonscan.io/address/0x22b32f4743364AAEd06EDeE8bb7131e43BCc4F71",
-      },
-      {
-        textKey: "tokenomicsInfo3Link",
-        url: "https://moonriver.moonscan.io/address/0x261A5C7389990fA233351295DE5865ddf783F3Ba",
-      },
-      {
-        textKey: "tokenomicsInfo3Link",
-        url: "https://moonriver.moonscan.io/address/0x1638e402a06c454B8426D987079E908dfC106409",
-      },
-      {
-        textKey: "tokenomicsInfo3Link",
-        url: "https://moonriver.moonscan.io/address/0x56653Ed8BaB5d927dA8E7FdD137509BB62dc5E37",
-      },
+      }
     ],
   },
 ];
@@ -59,6 +48,8 @@ const TaxInfoItems: TaxInfoItemType[] = [
     subtitleKey: "tokenomicsTaxInfo1Subtitle",
     caption1Key: "tokenomicsTaxInfo1Caption1",
     caption2Key: "tokenomicsTaxInfo1Caption2",
+    caption3Key: "tokenomicsTaxInfo1Caption3",
+    caption4Key: "tokenomicsTaxInfo1Caption4",
     background: getSingleAssetSrc("TOKENOMICSBUY").default,
     type: "BUY",
   },
@@ -67,6 +58,8 @@ const TaxInfoItems: TaxInfoItemType[] = [
     subtitleKey: "tokenomicsTaxInfo2Subtitle",
     caption1Key: "tokenomicsTaxInfo2Caption1",
     caption2Key: "tokenomicsTaxInfo2Caption2",
+    caption3Key: "tokenomicsTaxInfo2Caption3",
+    caption4Key: "tokenomicsTaxInfo2Caption4",
     background: getSingleAssetSrc("TOKENOMICSSELL").default,
     type: "SELL",
   },
@@ -89,6 +82,8 @@ type TaxInfoItemType = {
   subtitleKey: string;
   caption1Key: string;
   caption2Key: string;
+  caption3Key: string;
+  caption4Key: string;
   background: string;
   type: string;
 };
@@ -145,7 +140,7 @@ function Info() {
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Typography variant="h2">{t("tokenomics")}</Typography>
       <Typography variant="h3" sx={{ mt: 1 }}>
-        1,000,000,000
+        1,000,000,000,000
       </Typography>
       <Typography variant="body1" sx={{ ml: 1 }}>
         {t("tokenomicsTokensAmount")}
@@ -165,16 +160,28 @@ function TaxInfoItem(props: { item: TaxInfoItemType } & BoxProps) {
 
   const { t } = useTranslation();
 
+  const min900 = useMediaQuery("(min-width: 900px)");
+  const max1000 = useMediaQuery("(max-width: 1000px)");
+  const max1100 = useMediaQuery("(max-width: 1100px)");
+  const desktop = min900 && max1100;
+
+  const titleFontSize = desktop ? 24 : 28;
+  const subtitleFontSize = desktop ? 28 : 30;
+  const captionFontSize = desktop ? 16 : 18;
+
+  const buyBgPosition = desktop ? "0px 4px" : "0 -1px";
+  const paddingTop = min900 && max1000 ? "27px" : (min900 && max1100 ? "42px" : "55px");
+
   const sellTaxProps = {
     backgroundPosition: "2px 66px",
-    paddingTop: "55px",
+    paddingTop: paddingTop,
     paddingBottom: "62px",
     paddingRight: "34px",
   };
 
   const buyTaxProps = {
-    backgroundPosition: "0px -1px",
-    paddingTop: "54px",
+    backgroundPosition: buyBgPosition,
+    paddingTop: paddingTop,
     paddingBottom: "28px",
     paddingRight: "32px",
   };
@@ -196,19 +203,25 @@ function TaxInfoItem(props: { item: TaxInfoItemType } & BoxProps) {
       }}
       {...other}
     >
-      <Typography variant="h4" sx={{ fontWeight: 700 }}>
+      <Typography variant="h4" sx={{ fontSize: titleFontSize, fontWeight: 700 }}>
         <Trans i18nKey={item.titleKey}>
           Part0<span style={{ fontWeight: 400 }}>Part1</span>Part2
         </Trans>
       </Typography>
-      <Typography variant="h4" sx={{ fontSize: 30, fontWeight: 700, mt: 1 }}>
+      <Typography variant="h4" sx={{ fontSize: subtitleFontSize , fontWeight: 700, mt: desktop ? 0 : 1 }}>
         {t(item.subtitleKey)}
       </Typography>
-      <Typography variant="subtitle1" sx={{ mt: 2 }}>
+      <Typography variant="subtitle1" sx={{ fontSize: captionFontSize , mt: 0 }}>
         {t(item.caption1Key)}
       </Typography>
-      <Typography variant="subtitle1" sx={{ mt: -1 }}>
+      <Typography variant="subtitle1" sx={{  fontSize: captionFontSize, mt: -1 }}>
         {t(item.caption2Key)}
+      </Typography>
+      <Typography variant="subtitle1" sx={{  fontSize: captionFontSize, mt: -1 }}>
+        {t(item.caption3Key)}
+      </Typography>
+      <Typography variant="subtitle1" sx={{  fontSize: captionFontSize, mt: -1 }}>
+        {t(item.caption4Key)}
       </Typography>
     </Box>
   );
