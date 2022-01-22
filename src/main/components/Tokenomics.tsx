@@ -37,7 +37,19 @@ const InfoItems: InfoItemType[] = [
       {
         textKey: "tokenomicsInfo3Link",
         url: "https://moonriver.moonscan.io/address/0x22b32f4743364AAEd06EDeE8bb7131e43BCc4F71",
-      }
+      },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x261A5C7389990fA233351295DE5865ddf783F3Ba",
+      },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x1638e402a06c454B8426D987079E908dfC106409",
+      },
+      {
+        textKey: "tokenomicsInfo3Link",
+        url: "https://moonriver.moonscan.io/address/0x56653Ed8BaB5d927dA8E7FdD137509BB62dc5E37",
+      },
     ],
   },
 ];
