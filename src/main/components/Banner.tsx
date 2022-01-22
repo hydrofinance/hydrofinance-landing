@@ -6,7 +6,7 @@ import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HydroLandingImage from "../../assets/HYDROLANDING.svg";
-import DolphinImage from "../../assets/dolphin.gif";
+import Flipper from "../../assets/Flipper.gif";
 import SectionBox from "../../common/components/SectionBox";
 import AddressField from "../../common/components/AddressField";
 import PriceStats from "./PriceStats";
@@ -93,8 +93,8 @@ export default function Banner() {
                 left: { xs: "0%", md: "inherit" },
                 top: { xs: "-260px", md: "-160px" },
               }}
-              src={DolphinImage}
-              alt="Dolphin"
+              src={Flipper}
+              alt="Flipper"
             />
             <Typography
               variant="body1"
@@ -168,7 +168,7 @@ export default function Banner() {
                 pr: 2,
                 ml: 1,
               }}
-              href="https://dexscreener.com/moonriver/0xa7324c8c487fda048363386181b3f7c57ba6263c"
+              href="https://geckoterminal.com/movr/pools/0xa7324c8c487fda048363386181b3f7c57ba6263c"
               target="_blank"
             >
               {t("liveChart")}
