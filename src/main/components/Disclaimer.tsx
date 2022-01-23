@@ -26,10 +26,7 @@ export default function Disclaimer() {
           lg: "center",
         },
         backgroundRepeat: "no-repeat",
-        backgroundSize: {
-          xs: "auto 100%",
-          lg: "100% 100%",
-        },
+        backgroundSize: "100%",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -42,15 +39,24 @@ export default function Disclaimer() {
             ...defaultContentPadding,
             position: "relative",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: {
+              xs: "column-reverse",
+              md: "row",
+            },
             justifyContent: "flex-start",
-            margin: "82px 30px 0 30px",
+            margin: {
+              xs: "41px 30px 0 30px",
+              md: "82px 30px 0 30px",
+            },
           }}
         >
             <Box
               component="img"
               sx={{
-                position: "relative",
+                position: {
+                  xs: "unset",
+                  md: "relative",
+                },
                 top: "-39px",
                 height: "195px",
                 width: "225px",
@@ -62,7 +68,10 @@ export default function Disclaimer() {
               variant="body1"
               sx={{
                 fontWeight: "400",
-                margin: "0 20px 0 48px",
+                margin: {
+                  xs: "column-reverse",
+                  md: "0 20px 0 48px",
+                },
                 fontSize: "20px",
                 lineHeight: "23.44px",
                 textShadow : "0px 2px 2px #00000066",
