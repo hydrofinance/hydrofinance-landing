@@ -7,6 +7,7 @@ import Disclaimer from "./components/Disclaimer";
 import AboutUs from "./components/AboutUs";
 import Tokenomics from "./components/Tokenomics";
 import BuyingGuide from "./components/BuyingGuide";
+import WhyHydro from "./components/WhyHydro";
 
 export default function Main() {
   return (
@@ -31,6 +32,7 @@ export default function Main() {
         <Header />
       </SectionBox>
       <Banner />
+      <WhyHydro />
       <Disclaimer />
       <AboutUs />
       <Tokenomics />

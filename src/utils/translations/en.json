@@ -97,6 +97,9 @@
         "migrateToWallet": "Connected wallet:",
         "migrateNotAvailable": "Migration is currently not available. Please wait for announcement.",
         "disclaimerDescription": "As a member of HYDRO, we each need to understand that if we don’t work hard together, it will never happen. Nothing can stop what we can do together. 🤝 We need to create a supportive and motivated community of hodlers who are ready to work hard, contribute & risk it all for our one common goal! Launch HYDRO to the Moon and beyond!",
-        "disclaimerHeader": "DISCLAIMER:"
+        "disclaimerHeader": "DISCLAIMER:",
+        "learnMore": "LEARN MORE",
+        "whyHydro": "Why Hydro?",
+        "whyHydroDescription": "Everybody wants to ride the next moonshot but few are willing to do what it takes as a community to get there. HYDRO is aimed at people that want to unite, do whatever it takes and create our own luck. Designed around a frictionless, static reflection system and a mechanism that allows the community to choose its own reward token, HYDRO is an egalitarian community token that will reward diamond handed hodlers."
     }
 }
