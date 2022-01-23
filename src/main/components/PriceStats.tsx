@@ -3,6 +3,8 @@ import React from "react";
 import BigNumber from "bignumber.js";
 import { useTranslation } from "react-i18next";
 import LPIcon from "../../assets/LPIcon.svg";
+import DolphinIcon from "../../assets/DolphinIcon.svg";
+import GraphIcon from "../../assets/GraphIcon.svg";
 import MarketCapIcon from "../../assets/MarketCapIcon.svg";
 import PriceIcon from "../../assets/PriceIcon.svg";
 import RewardIcon from "../../assets/RewardIcon.svg";
@@ -51,6 +53,8 @@ const createItems = (
       value: priceValue,
       iconWidth: 18,
     },
+    { icon: GraphIcon, text: t("statsTradeVolume"), value: rewardValue },
+    { icon: DolphinIcon, text: t("statsTotalHodlers"), value: rewardValue },
     { icon: RewardIcon, text: t("statsRewardedText"), value: rewardValue },
   ] as ItemType[];
 };
@@ -60,7 +64,7 @@ function Item(props: { item: ItemType }) {
     item: { icon, text, value, iconWidth, iconHeight },
   } = props;
   return (
-    <Grid item xs={6} md={3}>
+    <Grid item xs={6} md={2}>
       <Box
         sx={{
           display: "flex",
@@ -71,7 +75,7 @@ function Item(props: { item: ItemType }) {
           paddingLeft: 2,
           paddingRight: 2,
           paddingTop: 1,
-          paddingBottom: 1,
+          paddingBottom: 2,
           height: {
             xs: 75,
             md: 100,
