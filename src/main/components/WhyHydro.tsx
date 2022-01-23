@@ -13,13 +13,17 @@ function Content() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: { xs: "start", md: "center" },
       }}
     >
       <Typography variant="h3">{t("whyHydro")}</Typography>
       <Typography
         variant="subtitle1"
-        sx={{ textAlign: "center", fontWeight: 400, my: 2 }}
+        sx={{
+          textAlign: { xs: "start", md: "center" },
+          fontWeight: 400,
+          my: 2,
+        }}
       >
         {t("whyHydroDescription")}
       </Typography>
