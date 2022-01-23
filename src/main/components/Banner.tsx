@@ -48,8 +48,6 @@ export default function Banner() {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const bigHeight = useMediaQuery("(min-height:700px)");
-
   return (
     <Box
       sx={{
@@ -64,7 +62,10 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: bigHeight ? "100%" : "800px",
+        minHeight:{
+          xs: "1100px",
+          md: "100%"
+        },
         height: "100%",
         display: "flex",
         justifyContent: "center",

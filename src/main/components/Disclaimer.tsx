@@ -17,8 +17,6 @@ export default function Disclaimer() {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const bigHeight = useMediaQuery("(min-height:700px)");
-
   return (
     <Box
       sx={{

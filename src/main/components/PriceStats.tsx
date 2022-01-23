@@ -74,7 +74,10 @@ function Item(props: { item: ItemType }) {
           borderRadius: "10px",
           paddingLeft: 2,
           paddingRight: 2,
-          paddingTop: 1,
+          paddingTop: {
+            xs: 2,
+            md: 1,
+          },
           paddingBottom: 2,
           height: {
             xs: 75,
