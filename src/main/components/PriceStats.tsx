@@ -12,7 +12,7 @@ import PriceStatsModal from "./PriceStatsModal/PriceStatsModal";
 import { useFetchPrice } from "../redux/fetchPrice";
 import { useFetchRewards } from "../redux/fetchRewards";
 import { TFunction } from "i18next";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { BoxProps } from "@mui/system";
 
 export type ItemType = {
@@ -97,6 +97,7 @@ function Item(props: {
             flexDirection: "column",
             justifyContent: "flex-end",
             backgroundColor: "#FFFFFF4D",
+            textAlign: "left",
             borderRadius: "10px",
             paddingLeft: 2,
             paddingRight: 2,
@@ -149,6 +150,7 @@ function Item(props: {
 
 export default function PriceStats(props: BoxProps) {
   const { t } = useTranslation();
+  const max900 = useMediaQuery("(max-width: 900px)");
   const { fetchRewards, rewardsUSDValue } = useFetchRewards();
   const { fetchPrice, h2oLPValue, h2oPrice } = useFetchPrice();
   const [popUpData, setPopUpData] = useState("");
@@ -169,11 +171,28 @@ export default function PriceStats(props: BoxProps) {
   };
 
   return (
-    <Grid sx={props.sx} container spacing={3}>
-      {items.map((i) => (
-        <Item key={i.text} item={i} setPopUpDataProps={setPopUpData} />
-      ))}
-      {popUpData && <PriceStatsModal type={popUpData} items={items} isOpen={true} closeModalCallback={closeModalCallback}/>}
-    </Grid>
+    <>
+      <Box sx={{ ml:1, pt: max900 ? 5 : 6 ,display: "flex" }}>
+        <Box
+          component="img"
+          src={GraphIcon}
+          alt={`QuickStats Icon`}
+          sx={{ width: 25, height: 25, marginTop: "12px" }}
+        />
+        <Typography
+          id="modal-modal-title"
+          variant="subtitle1"
+          sx={{ ml: 1, mt: 1 }}
+        >
+          Quick Stats
+        </Typography>
+      </Box>
+      <Grid sx={props.sx} container spacing={3}>
+        {items.map((i) => (
+          <Item key={i.text} item={i} setPopUpDataProps={setPopUpData} />
+        ))}
+        {popUpData && <PriceStatsModal type={popUpData} items={items} isOpen={true} closeModalCallback={closeModalCallback}/>}
+      </Grid>
+    </>
   );
 }

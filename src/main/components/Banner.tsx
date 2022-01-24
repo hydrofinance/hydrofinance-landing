@@ -63,7 +63,7 @@ export default function Banner() {
         },
         width: "100%",
         minHeight:{
-          xs: "1100px",
+          xs: "1130px",
           md: "100%"
         },
         height: "100%",
@@ -81,6 +81,10 @@ export default function Banner() {
             justifyContent: "center",
             height: "100%",
             width: "100%",
+            paddingTop: {
+              xs: 0,
+              md: "70px"
+            }
           }}
         >
           <Box sx={{ position: "relative", mt: "-40px" }}>
