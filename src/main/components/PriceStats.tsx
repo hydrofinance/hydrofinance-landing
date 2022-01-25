@@ -8,6 +8,7 @@ import GraphIcon from "../../assets/GraphIcon.svg";
 import MarketCapIcon from "../../assets/MarketCapIcon.svg";
 import PriceIcon from "../../assets/PriceIcon.svg";
 import RewardIcon from "../../assets/RewardIcon.svg";
+import info from "../../assets/info.png";
 import PriceStatsModal from "./PriceStatsModal/PriceStatsModal";
 import { useFetchPrice } from "../redux/fetchPrice";
 import { useFetchRewards } from "../redux/fetchRewards";
@@ -111,6 +112,21 @@ function Item(props: {
             color: "#fff",
           }}
         >
+          {keyValue && (
+            <Box
+              component="img"
+              src={info}
+              alt={text}
+              sx={{
+                width: iconWidth || 20,
+                height: iconHeight || 20,
+                alignSelf: "end",
+                position: "absolute",
+                top: "12px",
+                right: "16px",
+              }}
+            />
+          )}
           <Box
             component="img"
             src={icon}
@@ -172,7 +188,7 @@ export default function PriceStats(props: BoxProps) {
 
   return (
     <>
-      <Box sx={{ ml:1, pt: max900 ? 5 : 6 ,display: "flex" }}>
+      <Box sx={{ ml: 1, pt: max900 ? 5 : 6, display: "flex" }}>
         <Box
           component="img"
           src={GraphIcon}
@@ -191,7 +207,14 @@ export default function PriceStats(props: BoxProps) {
         {items.map((i) => (
           <Item key={i.text} item={i} setPopUpDataProps={setPopUpData} />
         ))}
-        {popUpData && <PriceStatsModal type={popUpData} items={items} isOpen={true} closeModalCallback={closeModalCallback}/>}
+        {popUpData && (
+          <PriceStatsModal
+            type={popUpData}
+            items={items}
+            isOpen={true}
+            closeModalCallback={closeModalCallback}
+          />
+        )}
       </Grid>
     </>
   );
