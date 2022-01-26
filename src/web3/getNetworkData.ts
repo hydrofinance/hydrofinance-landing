@@ -41,7 +41,7 @@ export const getNetworkV1TokenAddress = (networkId: number) => {
 export const getNetworkV2TokenAddress = (networkId: number) => {
   switch (networkId) {
     case 1285:
-      return null;
+      return "0x56cfe76545939AFAbc8BDbA94192A96801D24d28";
     case 1287:
       return "0x3A2101FE4a9FA842FA31a599dd698DE61c281EDD";
     default:
@@ -52,7 +52,7 @@ export const getNetworkV2TokenAddress = (networkId: number) => {
 export const getNetworkV2MigratorAddress = (networkId: number) => {
   switch (networkId) {
     case 1285:
-      return null;
+      return "0x2613Db0D14c90b1fFcCc754D299C8AF7d2A8aFCc";
     case 1287:
       return "0x19de56C7Ac0B95f516f54DD9aC6C8978E02fd279";
     default:

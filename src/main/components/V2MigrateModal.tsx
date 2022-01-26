@@ -19,7 +19,6 @@ import ContentV2MigrateNoTokens from "../../common/components/ContentV2MigrateNo
 import { useV2Migrate } from "../redux/v2Migrate";
 import ContentV2Migrate from "../../common/components/ContentV2Migrate";
 import ContentV2MigrateSuccess from "../../common/components/ContentV2MigrateSuccess";
-import ContentNotAvailable from "../../common/components/ContentNotAvailable";
 
 function Content() {
   const { networkId, connected } = useConnectWallet();
@@ -38,10 +37,6 @@ function Content() {
   const isValid = networkId ? isValidNetworkId(networkId) : null;
   if (!isValid) {
     return <ContentInvalidNetwork />;
-  }
-  // Remove it after live on moonriver
-  if (networkId === 1285) {
-    return <ContentNotAvailable />;
   }
   if (!v1Balance) {
     return (
