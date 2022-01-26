@@ -168,7 +168,7 @@ export default function Banner() {
                 pr: 2,
                 ml: 1,
               }}
-              href="https://dexscreener.com/moonriver/0x56cfe76545939AFAbc8BDbA94192A96801D24d28"
+              href="https://geckoterminal.com/movr/pools/0x6f0c50fb6270f206a074f8058f165720c7a9761c"
               target="_blank"
             >
               {t("liveChart")}
