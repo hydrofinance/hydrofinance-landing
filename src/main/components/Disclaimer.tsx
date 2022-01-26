@@ -26,7 +26,11 @@ export default function Disclaimer() {
           lg: "center",
         },
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100%",
+        // backgroundSize: "100%",
+        backgroundSize: {
+          xs: "cover",
+          lg: "100%",
+        },
         width: "100%",
         height: "100%",
         display: "flex",
