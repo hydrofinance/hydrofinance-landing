@@ -28,13 +28,13 @@ export const fetchPrice = createAsync<
   }
 
   const h2oPrice = new BigNumber(
-    data.pair.token0.symbol === "H2O"
+    data.pair.token0.symbol === "HYDRO"
       ? data.pair.token0.tokenDayData[0].priceUSD
       : data.pair.token1.tokenDayData[0].priceUSD
   );
 
   const h2oReserve = new BigNumber(
-    data.pair.token0.symbol === "H2O" ? data.pair.reserve0 : data.pair.reserve1
+    data.pair.token0.symbol === "HYDRO" ? data.pair.reserve0 : data.pair.reserve1
   );
 
   const lpValue = h2oPrice.multipliedBy(h2oReserve).multipliedBy(2);

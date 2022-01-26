@@ -19,7 +19,7 @@ export const isValidNetworkId = (networkId: number) =>
 export const getNetworkPair = (networkId: number) => {
   switch (networkId) {
     case 1285:
-      return "0xa7324C8c487fdA048363386181b3F7c57BA6263c";
+      return "0x6F0c50fB6270F206a074F8058f165720c7a9761c";
     case 1287:
       return "0x78d67A62B85533d17774037DbFE69fD5e3633d90";
     default:
