@@ -20,7 +20,7 @@ const InfoItems: InfoItemType[] = [
     links: [
       {
         textKey: "tokenomicsInfo1Link",
-        url: "https://moonriver.moonscan.io/address/0x36A58BEd6347DAE855D4B5E29d21A93E1dE66450",
+        url: "https://moonriver.moonscan.io/address/0x5BC5303b2Aa19A863C6911EeA456d4226e7Be814",
       },
     ],
   },
