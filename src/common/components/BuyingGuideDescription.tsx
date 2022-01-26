@@ -36,7 +36,7 @@ function ContractAddress() {
         variant="body2"
         style={{ marginBottom: "4px", lineBreak: "anywhere" }}
       >
-        0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F
+        0x56cfe76545939AFAbc8BDbA94192A96801D24d28
       </Typography>
     </Box>
   );

@@ -141,7 +141,7 @@ export default function Banner() {
               },
             }}
           >
-            <AddressField address="0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F" />
+            <AddressField address="0x56cfe76545939AFAbc8BDbA94192A96801D24d28" />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
             <Button
@@ -153,7 +153,7 @@ export default function Banner() {
                 pl: 3,
                 pr: 3,
               }}
-              href="https://www.huckleberry.finance/#/swap?outputCurrency=0xDC151BC48a5F77288cdE9DdbFf2e32e6bcF4791F"
+              href="https://www.huckleberry.finance/#/swap?outputCurrency=0x56cfe76545939AFAbc8BDbA94192A96801D24d28"
               target="_blank"
             >
               {t("buyNow")}
@@ -168,7 +168,7 @@ export default function Banner() {
                 pr: 2,
                 ml: 1,
               }}
-              href="https://dexscreener.com/moonriver/0xa7324c8c487fda048363386181b3f7c57ba6263c"
+              href="https://dexscreener.com/moonriver/0x56cfe76545939AFAbc8BDbA94192A96801D24d28"
               target="_blank"
             >
               {t("liveChart")}
