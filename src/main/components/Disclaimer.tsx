@@ -9,7 +9,7 @@ import SectionBox from "../../common/components/SectionBox";
 
 const useStyles = makeStyles({
   fontBold: {
-      fontWeight: "700"
+    fontWeight: "700",
   },
 });
 
@@ -26,7 +26,7 @@ export default function Disclaimer() {
           lg: "center",
         },
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100%",
+        backgroundSize: "cover",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -50,36 +50,40 @@ export default function Disclaimer() {
             },
           }}
         >
-            <Box
-              component="img"
-              sx={{
-                position: {
-                  xs: "unset",
-                  md: "relative",
-                },
-                top: "-39px",
-                height: "195px",
-                width: "225px",
-              }}
-              src={DolphinHandShake}
-              alt="Dolphin"
-            />
-            <Typography
-              variant="body1"
-              sx={{
-                fontWeight: "400",
-                margin: {
-                  xs: "column-reverse",
-                  md: "0 20px 0 48px",
-                },
-                fontSize: "20px",
-                lineHeight: "23.44px",
-                textShadow : "0px 2px 2px #00000066",
-              }}
-            >
-              <span className={classes.fontBold}>{t("disclaimerHeader")} </span> 
-              <span >{t("disclaimerDescription")}</span>
-            </Typography>
+          <Box
+            component="img"
+            sx={{
+              position: {
+                xs: "unset",
+                md: "relative",
+              },
+              top: "-39px",
+              height: "195px",
+              width: "225px",
+              alignSelf: {
+                xs: "center",
+                md: "inherit",
+              },
+            }}
+            src={DolphinHandShake}
+            alt="Dolphin"
+          />
+          <Typography
+            variant="body1"
+            sx={{
+              fontWeight: "400",
+              margin: {
+                xs: "column-reverse",
+                md: "0 20px 0 48px",
+              },
+              fontSize: "20px",
+              lineHeight: "23.44px",
+              textShadow: "0px 2px 2px #00000066",
+            }}
+          >
+            <span className={classes.fontBold}>{t("disclaimerHeader")} </span>
+            <span>{t("disclaimerDescription")}</span>
+          </Typography>
         </Box>
       </SectionBox>
     </Box>

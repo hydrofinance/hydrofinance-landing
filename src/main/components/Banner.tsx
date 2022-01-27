@@ -48,6 +48,8 @@ export default function Banner() {
   const { t } = useTranslation();
   const classes = useStyles();
 
+  const bigHeight = useMediaQuery("(min-height:700px)");
+
   return (
     <Box
       sx={{
@@ -62,10 +64,12 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: {
-          xs: "1130px",
-          md: "100%",
-        },
+        minHeight: bigHeight ? "100%" : "800px",
+        // commented for time when we will have new price stats logic
+        // minHeight: {
+        //   xs: "1130px",
+        //   md: "100%",
+        // },
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -81,10 +85,11 @@ export default function Banner() {
             justifyContent: "center",
             height: "100%",
             width: "100%",
-            paddingTop: {
-              xs: 0,
-              md: "70px",
-            },
+            // commented for time when we will have new price stats logic
+            // paddingTop: {
+            //   xs: 0,
+            //   md: "70px",
+            // },
           }}
         >
           <Box sx={{ position: "relative", mt: "-40px" }}>
