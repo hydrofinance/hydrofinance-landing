@@ -6,7 +6,7 @@ import { getSingleAssetSrc } from "../../utils/getSingleAssetSrc";
 import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HydroLandingImage from "../../assets/HYDROLANDING.svg";
-import DolphinImage from "../../assets/dolphin.gif";
+import Flipper from "../../assets/Flipper.gif";
 import SectionBox from "../../common/components/SectionBox";
 import AddressField from "../../common/components/AddressField";
 import PriceStats from "./PriceStats";
@@ -48,8 +48,6 @@ export default function Banner() {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const bigHeight = useMediaQuery("(min-height:700px)");
-
   return (
     <Box
       sx={{
@@ -64,7 +62,10 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: bigHeight ? "100%" : "800px",
+        minHeight: {
+          xs: "1130px",
+          md: "100%",
+        },
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -80,6 +81,10 @@ export default function Banner() {
             justifyContent: "center",
             height: "100%",
             width: "100%",
+            paddingTop: {
+              xs: 0,
+              md: "70px",
+            },
           }}
         >
           <Box sx={{ position: "relative", mt: "-40px" }}>
@@ -93,8 +98,8 @@ export default function Banner() {
                 left: { xs: "0%", md: "inherit" },
                 top: { xs: "-260px", md: "-160px" },
               }}
-              src={DolphinImage}
-              alt="Dolphin"
+              src={Flipper}
+              alt="Flipper"
             />
             <Typography
               variant="body1"
