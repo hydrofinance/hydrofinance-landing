@@ -152,7 +152,7 @@ function Info() {
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Typography variant="h2">{t("tokenomics")}</Typography>
       <Typography variant="h3" sx={{ mt: 1 }}>
-        1,000,000,000,000
+        1,000,000,000
       </Typography>
       <Typography variant="body1" sx={{ ml: 1 }}>
         {t("tokenomicsTokensAmount")}

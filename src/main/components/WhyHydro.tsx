@@ -2,8 +2,7 @@ import SectionBox from "../../common/components/SectionBox";
 import { Grid, Typography, Box, Button } from "@mui/material";
 import FancyDivider from "../../common/components/FancyDivider";
 import { defaultContentPadding } from "../../utils/theme";
-import { Trans, useTranslation } from "react-i18next";
-import SectionTitle from "../../common/components/SectionTitle";
+import { useTranslation } from "react-i18next";
 
 function Content() {
   const { t } = useTranslation();
