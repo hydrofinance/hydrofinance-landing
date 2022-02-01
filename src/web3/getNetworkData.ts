@@ -71,21 +71,10 @@ export const getNetworkAirdropAddress = (networkId: number) => {
   }
 };
 
-export const getNetworkRewardPairs = (networkId: number) => {
+export const getNetworkDistributorPlugin = (networkId: number) => {
   switch (networkId) {
     case 1285:
-      return ["0xDCd92eb568157D3c1a6b3AE53ADF18a230bc304A"];
-    case 1287:
-      return null;
-    default:
-      return null;
-  }
-};
-
-export const getNetworkDistributors = (networkId: number) => {
-  switch (networkId) {
-    case 1285:
-      return ["0xB7Cb2440b5fD5B9CbeCd7e63c4d88d497a6D22fB", "0x905EB65395465B4f7380a0fbb84707D38307AD69"];
+      return "0x141ABcA2B12928e054Dd45Fbc3036e2c570f2f95";
     case 1287:
       return null;
     default:

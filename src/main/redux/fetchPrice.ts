@@ -11,7 +11,12 @@ import { pairQuery, PairQueryResult } from "../../apollo/queries";
 
 export const fetchPrice = createAsync<
   void,
-  { h2oPrice: string; h2oLPValue: string } | null,
+  {
+    h2oPrice: string;
+    h2oLPValue: string;
+    h2oVolumeDay: string;
+    h2oVolumeWeek: string;
+  } | null,
   Error
 >("FETCH_PRICE", async () => {
   const pairAddress = getNetworkPair(1285);
@@ -27,29 +32,44 @@ export const fetchPrice = createAsync<
     return null;
   }
 
-  const h2oPrice = new BigNumber(
+  const tokenDayData =
     data.pair.token0.symbol === "HYDRO"
-      ? data.pair.token0.tokenDayData[0].priceUSD
-      : data.pair.token1.tokenDayData[0].priceUSD
-  );
+      ? data.pair.token0.tokenDayData
+      : data.pair.token1.tokenDayData;
+
+  const h2oPrice = new BigNumber(tokenDayData[0].priceUSD);
+  const h2oVolumeDay = tokenDayData[0].dailyVolumeUSD;
+  const h2oVolumeWeek = tokenDayData
+    .reduce(
+      (prev, currentValue) =>
+        prev.plus(new BigNumber(currentValue.dailyVolumeUSD)),
+      new BigNumber(0)
+    )
+    .toString();
 
   const h2oReserve = new BigNumber(
-    data.pair.token0.symbol === "HYDRO" ? data.pair.reserve0 : data.pair.reserve1
+    data.pair.token0.symbol === "HYDRO"
+      ? data.pair.reserve0
+      : data.pair.reserve1
   );
 
   const lpValue = h2oPrice.multipliedBy(h2oReserve).multipliedBy(2);
   return {
     h2oPrice: h2oPrice.toString(),
     h2oLPValue: lpValue.toString(),
+    h2oVolumeDay,
+    h2oVolumeWeek,
   };
 });
 
 export function useFetchPrice() {
   const dispatch = useDispatch();
-  const { h2oPrice, h2oLPValue } = useSelector(
+  const { h2oPrice, h2oLPValue, h2oVolumeDay, h2oVolumeWeek } = useSelector(
     (state: Store) => ({
       h2oPrice: state.main.h2oPrice,
       h2oLPValue: state.main.h2oLPValue,
+      h2oVolumeDay: state.main.h2oVolumeDay,
+      h2oVolumeWeek: state.main.h2oVolumeWeek,
     }),
     shallowEqual
   );
@@ -58,6 +78,8 @@ export function useFetchPrice() {
   return {
     h2oPrice,
     h2oLPValue,
+    h2oVolumeDay,
+    h2oVolumeWeek,
     fetchPrice: boundAction,
   };
 }

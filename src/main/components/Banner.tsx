@@ -64,12 +64,10 @@ export default function Banner() {
           lg: "100% 100%",
         },
         width: "100%",
-        minHeight: bigHeight ? "100%" : "800px",
-        // commented for time when we will have new price stats logic
-        // minHeight: {
-        //   xs: "1130px",
-        //   md: "100%",
-        // },
+        minHeight: {
+          xs: "1050px",
+          md: bigHeight ? "100%" : "1130px",
+        },
         height: "100%",
         display: "flex",
         justifyContent: "center",
@@ -85,14 +83,17 @@ export default function Banner() {
             justifyContent: "center",
             height: "100%",
             width: "100%",
-            // commented for time when we will have new price stats logic
-            // paddingTop: {
-            //   xs: 0,
-            //   md: "70px",
-            // },
           }}
         >
-          <Box sx={{ position: "relative", mt: "-40px" }}>
+          <Box
+            sx={{
+              position: "relative",
+              mt: {
+                xs: "-140px",
+                md: "-40px",
+              },
+            }}
+          >
             <Box
               component="img"
               sx={{

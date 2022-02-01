@@ -1,38 +1,19 @@
 import gql from "graphql-tag";
 
-export type SwapsQueryResult = {
-  swaps: {
-    timestamp: string;
-    amount1Out: string;
-    amountUSD: string;
-  }[];
-};
-
-export const swapsQuery = (pair: string, to: string) => {
-  const queryString = `
-    query swaps {
-      swaps(orderBy: timestamp, orderDirection: desc, where: {pair: "${pair}", to:"${to}" }) {
-        timestamp
-        amount1Out
-        amountUSD
-      }
-    }
-`;
-  return gql(queryString);
-};
-
 export type PairQueryResult = {
   pair: {
     token0: {
       symbol: string;
       tokenDayData: {
         priceUSD: string;
+        dailyVolumeUSD: string;
       }[];
     };
     token1: {
       symbol: string;
       tokenDayData: {
         priceUSD: string;
+        dailyVolumeUSD: string;
       }[];
     };
     reserve0: string;
@@ -46,14 +27,16 @@ export const pairQuery = (pair: string) => {
       pair(id: "${pair}") {
         token0 {
           symbol
-          tokenDayData(orderBy: date, orderDirection: desc, first:1) {
-            priceUSD
+          tokenDayData(orderBy: date, orderDirection: desc, first:7) {
+            priceUSD,
+            dailyVolumeUSD
           }
         }
         token1 {
           symbol
-          tokenDayData(orderBy: date, orderDirection: desc, first:1) {
-            priceUSD
+          tokenDayData(orderBy: date, orderDirection: desc, first:7) {
+            priceUSD,
+            dailyVolumeUSD
           }
         }
         reserve0

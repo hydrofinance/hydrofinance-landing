@@ -11,7 +11,6 @@ import { getSingleAssetSrc } from "../../../utils/getSingleAssetSrc";
 import close from "../../../assets/close.png";
 import TotalRewarded from "./TotalRewarded";
 import TradeVolume from "./TradeVolume";
-import RewardIcon from "../../../assets/RewardIcon.svg";
 import TotalLiquidity from "./TotalLiquidity";
 import { ItemType } from "../PriceStats";
 

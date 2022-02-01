@@ -1,3 +1,5 @@
+import { ethers } from "ethers";
+
 export const networkSettings: { [id: number]: any } = {
   1285: {
     chainId: `0x${parseInt("1285", 10).toString(16)}`,
@@ -44,4 +46,10 @@ export const networkSetup = (chainId: number) => {
       reject(new Error(`window.ethereum is '${typeof provider}'`));
     }
   });
+};
+
+export const createEthersProvider = (networkId: number) => {
+  return new ethers.providers.JsonRpcProvider(
+    networkSettings[networkId].rpcUrls[0]
+  );
 };

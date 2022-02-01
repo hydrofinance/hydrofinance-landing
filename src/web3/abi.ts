@@ -650,3 +650,492 @@ export const v2MigratorABI = [
     type: "function",
   },
 ];
+
+export const distributorPluginABI = [
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_hydroAddress",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_baseRouterAddress",
+        type: "address",
+      },
+      {
+        internalType: "address[]",
+        name: "_h2oToNativeTokenRoute",
+        type: "address[]",
+      },
+      {
+        internalType: "address[]",
+        name: "_nativeToH2oTokenRoute",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousDao",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newDao",
+        type: "address",
+      },
+    ],
+    name: "DaoTransferred",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "previousOwner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "OwnershipTransferred",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_owner",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_rewardTokenAddress",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_rewardRouterAddress",
+        type: "address",
+      },
+      {
+        internalType: "address[]",
+        name: "_h2oToRewardTokenRoute",
+        type: "address[]",
+      },
+      {
+        internalType: "address[]",
+        name: "_rewardToNativeRoute",
+        type: "address[]",
+      },
+      {
+        internalType: "address[]",
+        name: "_nativeToRewardRoute",
+        type: "address[]",
+      },
+      {
+        internalType: "bool",
+        name: "updateShareholders",
+        type: "bool",
+      },
+    ],
+    name: "addDistributor",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_baseRouterAddress",
+        type: "address",
+      },
+      {
+        internalType: "address[]",
+        name: "_h2oToNativeTokenRoute",
+        type: "address[]",
+      },
+      {
+        internalType: "address[]",
+        name: "_nativeToH2oTokenRoute",
+        type: "address[]",
+      },
+    ],
+    name: "changeBaseRouter",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "shareholder",
+        type: "address",
+      },
+    ],
+    name: "claimDividend",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_rewardTokenAddress",
+        type: "address",
+      },
+    ],
+    name: "deleteDistributor",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
+      },
+    ],
+    name: "deposit",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "distributorsArrayOfKeys",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    name: "distributorsMapping",
+    outputs: [
+      {
+        internalType: "contract DividendDistributor",
+        name: "distributor",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "index",
+        type: "uint256",
+      },
+      {
+        internalType: "string",
+        name: "tokenName",
+        type: "string",
+      },
+      {
+        internalType: "bool",
+        name: "exists",
+        type: "bool",
+      },
+      {
+        internalType: "bool",
+        name: "shareholdersConfigured",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_rewardTokenAddress",
+        type: "address",
+      },
+    ],
+    name: "getDistributor",
+    outputs: [
+      {
+        internalType: "contract DividendDistributor",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getDistributorsAddresses",
+    outputs: [
+      {
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_rewardTokenAddress",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "shareholder",
+        type: "address",
+      },
+    ],
+    name: "getShareholderAmount",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getTotalDistributers",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "h2oAddress",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "h2oDepositThreshold",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "gas",
+        type: "uint256",
+      },
+    ],
+    name: "process",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "processedCount",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "gas",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "distributorIndex",
+        type: "uint256",
+      },
+    ],
+    name: "processAtIndex",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "retirePlugin",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_daoAddress",
+        type: "address",
+      },
+    ],
+    name: "setDaoAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_minPeriod",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "_minDistribution",
+        type: "uint256",
+      },
+    ],
+    name: "setDistributionCriteria",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_h2oDepositThreshold",
+        type: "uint256",
+      },
+    ],
+    name: "setH2ODepositThreshold",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "shareholder",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "setShare",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_rewardTokenAddress",
+        type: "address",
+      },
+    ],
+    name: "setShareholdersConfigured",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "newOwner",
+        type: "address",
+      },
+    ],
+    name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+];

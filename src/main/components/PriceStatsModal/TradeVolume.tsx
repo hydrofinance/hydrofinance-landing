@@ -1,14 +1,24 @@
 import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import BigNumber from "bignumber.js";
+import { Box, Typography } from "@mui/material";
+import { useFetchPrice } from "../../redux/fetchPrice";
 
 export default function TradeVolume() {
+  const { h2oVolumeDay, h2oVolumeWeek } = useFetchPrice();
+
+  const volumeDay = h2oVolumeDay
+    ? "$" + new BigNumber(h2oVolumeDay).decimalPlaces(0).toFormat()
+    : "-";
+  const volumeWeek = h2oVolumeWeek
+    ? "$" + new BigNumber(h2oVolumeWeek).decimalPlaces(0).toFormat()
+    : "-";
+
   return (
-    <Box> 
+    <Box>
       <Box
         sx={{
           height: "72px",
-          minWidth: "300px",
-          maxWidth: "335px",
+          width: "100%",
           backgroundColor: "#fff",
           borderRadius: "10px",
           display: "flex",
@@ -20,34 +30,38 @@ export default function TradeVolume() {
             mt: "12px",
             marginLeft: 0,
             mb: "auto",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           <Typography
             variant="body1"
-            sx={{ color: "#09060B", fontWeight: "bold", lineHeight: "19px", textAlign: "center" }}
+            sx={{
+              color: "#09060B",
+              fontWeight: "bold",
+              lineHeight: "19px",
+              textAlign: "center",
+            }}
           >
             24H TRADING VOLUME:
           </Typography>
           <Typography
             variant="subtitle1"
-            sx={{ color: "#40B3E0", display: "inline"}}
+            sx={{ color: "#40B3E0", display: "inline" }}
           >
-            $30,000
+            {volumeDay}
           </Typography>
         </Box>
       </Box>
       <Box
         sx={{
           height: "72px",
-          minWidth: "300px",
-          maxWidth: "335px",
+          width: "100%",
           backgroundColor: "#fff",
           borderRadius: "10px",
           display: "flex",
           justifyContent: "space-around",
           mt: 5,
-          mb: 6
+          mb: 6,
         }}
       >
         <Box
@@ -55,22 +69,28 @@ export default function TradeVolume() {
             mt: "12px",
             marginLeft: 0,
             mb: "auto",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           <Typography
             variant="body1"
-            sx={{ color: "#09060B", fontWeight: "bold", lineHeight: "19px", textAlign: "center" }}
+            sx={{
+              color: "#09060B",
+              fontWeight: "bold",
+              lineHeight: "19px",
+              textAlign: "center",
+            }}
           >
             7D TRADING VOLUME
           </Typography>
           <Typography
             variant="subtitle1"
-            sx={{ color: "#40B3E0", display: "inline"}}
+            sx={{ color: "#40B3E0", display: "inline" }}
           >
-            $210,000
+            {volumeWeek}
           </Typography>
         </Box>
       </Box>
-    </Box>);
+    </Box>
+  );
 }

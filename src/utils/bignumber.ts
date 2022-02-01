@@ -2,10 +2,11 @@ import BigNumber from "bignumber.js";
 
 export function byDecimals(
   number: number | BigNumber | string,
-  tokenDecimals = 18
+  tokenDecimals = 18,
+  decimalPlaces = 18
 ) {
   const decimals = new BigNumber(10).exponentiatedBy(tokenDecimals);
-  return new BigNumber(number).dividedBy(decimals).decimalPlaces(tokenDecimals);
+  return new BigNumber(number).dividedBy(decimals).decimalPlaces(decimalPlaces);
 }
 
 export function formatToFit(number: BigNumber) {

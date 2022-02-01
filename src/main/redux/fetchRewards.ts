@@ -1,71 +1,33 @@
-import { BigNumber } from "bignumber.js";
 import { ReducerBuilder } from "typescript-fsa-reducers";
 import { createAsync } from "../../utils/reduxCreators";
 import { useCallback } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { Store } from "../../utils/rootReducer";
-import {
-  getNetworkDistributors,
-  getNetworkRewardPairs,
-} from "../../web3/getNetworkData";
-import { MainState } from "../model/reducer";
-import { huckleberryClient } from "../../apollo/client";
-import { swapsQuery, SwapsQueryResult } from "../../apollo/queries";
+import { MainState, Rewards } from "../model/reducer";
+import { API } from "../../utils/api";
 
-export const fetchRewards = createAsync<
-  void,
-  { rewardsUSDValue: string } | null,
-  Error
->("FETCH_REWARDS", async () => {
-  const rewardPairAddresses = getNetworkRewardPairs(1285);
-  const distributorAddresses = getNetworkDistributors(1285);
-  if (!rewardPairAddresses || !distributorAddresses) {
-    return null;
+export const fetchRewards = createAsync<void, Rewards, Error>(
+  "FETCH_REWARDS",
+  async () => {
+    const result = await API.get<Rewards>("/rewards/1285");
+    return result.data;
   }
-
-  let rewardUsdValue = new BigNumber(0);
-  for (let index = 0; index < rewardPairAddresses.length; index++) {
-    for (
-      let distIndex = 0;
-      distIndex < distributorAddresses.length;
-      distIndex++
-    ) {
-      const rewardPairAddress = rewardPairAddresses[index];
-      const { data } = await huckleberryClient.query<SwapsQueryResult>({
-        query: swapsQuery(
-          rewardPairAddress.toLowerCase(),
-          distributorAddresses[distIndex].toLowerCase()
-        ),
-      });
-
-      for (let dataIndex = 0; dataIndex < data.swaps.length; dataIndex++) {
-        const dataSwap = data.swaps[dataIndex];
-        rewardUsdValue = rewardUsdValue.plus(new BigNumber(dataSwap.amountUSD));
-      }
-    }
-  }
-
-  return {
-    rewardsUSDValue: rewardUsdValue.toString(),
-  };
-});
+);
 
 export function useFetchRewards() {
   const dispatch = useDispatch();
-  const { rewardsAmount, rewardsPending, rewardsUSDValue } = useSelector(
+  const { rewards, rewardsPending } = useSelector(
     (state: Store) => ({
       networkId: state.common.networkId,
-      rewardsAmount: state.main.rewardsAmount,
+      rewards: state.main.rewards,
       rewardsPending: state.main.rewardsPending,
-      rewardsUSDValue: state.main.rewardsUSDValue,
     }),
     shallowEqual
   );
   const boundAction = useCallback(() => dispatch(fetchRewards()), [dispatch]);
 
   return {
-    rewardsAmount,
-    rewardsUSDValue,
+    rewards,
     rewardsPending,
     fetchRewards: boundAction,
   };
@@ -86,5 +48,5 @@ export const builderHandler = (
     .case(fetchRewards.async.done, (state, { result }) => ({
       ...state,
       rewardsPending: false,
-      ...(result || {}),
+      rewards: result,
     }));
