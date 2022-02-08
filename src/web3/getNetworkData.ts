@@ -82,6 +82,37 @@ export const getNetworkDistributorPlugin = (networkId: number) => {
   }
 };
 
+export const getNetworkMulticall = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return "0x5f9Af1Fdc4eb0B0b3E3263e19030c1A0Da4121Fc";
+    case 1287:
+      return "0x3C8c1948D959Ec186d35dDC26280D48100A81101";
+    default:
+      throw Error(`Multicall not configured for network id ${networkId}`);
+  }
+};
+
+export const getFinnAddress = (networkId: number) => {
+  switch (networkId) {
+    case 1285:
+      return "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756";
+    case 1287:
+      return "0x31b1644f8379a22d25f845a67f1ab346e76001aa";
+    default:
+      return null;
+  }
+};
+
+export const getHydroRouter = (networkId: number) => {
+  switch (networkId) {
+    case 1287:
+      return "0x4032D8252FaA1A84B699e883cB38b8a4CFc620d2";
+    default:
+      return null;
+  }
+};
+
 const networkTxUrls: { [networkId: number]: (hash: string) => string } = {
   1285: (hash: string) => `https://moonriver.moonscan.io/tx/${hash}`,
   1287: (hash: string) => `https://moonbase.moonscan.io/tx/${hash}`,

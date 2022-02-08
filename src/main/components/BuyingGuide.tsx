@@ -6,6 +6,7 @@ import SectionBox from "../../common/components/SectionBox";
 import { defaultContentPadding } from "../../utils/theme";
 import BuyingGuideDescription from "../../common/components/BuyingGuideDescription";
 import FancyDivider from "../../common/components/FancyDivider";
+import Footer from "../../common/components/Footer";
 
 const Steps: StepItemType[] = [
   {
@@ -171,19 +172,7 @@ export default function BuyingGuide() {
             marginBottom: "10px",
           }}
         />
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            mb: "20px",
-          }}
-        >
-          <Typography variant="h3">{t("hydro")}</Typography>
-          <Typography variant="body2" sx={{ ml: "12px" }}>
-            {t("copyright")}
-          </Typography>
-        </Box>
+        <Footer />
       </Box>
     </SectionBox>
   );

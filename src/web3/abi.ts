@@ -1139,3 +1139,115 @@ export const distributorPluginABI = [
     type: "function",
   },
 ];
+
+export const hydroRouterABI = [
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_huckleRouterAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_hydroTokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_finnTokenAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "hydroDesired",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "finnDesired",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "hydroAmountMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "finnAmountMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "addLiquidity",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountA",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountB",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "liquidity",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "liquidity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountAMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountBMin",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      }
+    ],
+    "name": "removeLiquidity",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountA",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountB",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
