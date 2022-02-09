@@ -7,6 +7,7 @@ import { defaultContentPadding, textShadow } from "../../utils/theme";
 import { makeStyles } from "@mui/styles";
 import HydroLandingImage from "../../assets/HYDROLANDING.svg";
 import Flipper from "../../assets/Flipper.gif";
+import CoinGeckoIcon from "../../assets/CoinGecko.svg";
 import SectionBox from "../../common/components/SectionBox";
 import AddressField from "../../common/components/AddressField";
 import PriceStats from "./PriceStats";
@@ -49,6 +50,7 @@ export default function Banner() {
   const classes = useStyles();
 
   const bigHeight = useMediaQuery("(min-height:700px)");
+  const mediumWidth = useMediaQuery("(min-width:500px)");
 
   return (
     <Box
@@ -167,7 +169,7 @@ export default function Banner() {
               href="https://www.huckleberry.finance/#/swap?outputCurrency=0x56cfe76545939AFAbc8BDbA94192A96801D24d28"
               target="_blank"
             >
-              {t("buyNow")}
+              {mediumWidth ? t("buyNow") : "Buy"}
             </Button>
             <Button
               variant="text"
@@ -182,7 +184,28 @@ export default function Banner() {
               href="https://geckoterminal.com/movr/pools/0x6f0c50fb6270f206a074f8058f165720c7a9761c"
               target="_blank"
             >
-              {t("liveChart")}
+              {mediumWidth ? t("liveChart") : "Chart"}
+            </Button>
+            <Button
+              variant="text"
+              color="secondary"
+              sx={{
+                fontSize: 16,
+                fontWeight: 500,
+                pl: 2,
+                pr: 2,
+                ml: 1,
+              }}
+              href="https://www.coingecko.com/en/coins/hydro-protocol-token"
+              target="_blank"
+            >
+              <Box
+                component="img"
+                src={CoinGeckoIcon}
+                alt={"CoinGecko"}
+                sx={{ width: 27, height: 27, marginRight: 1 }}
+              />
+              CoinGecko
             </Button>
           </Box>
           <PriceStats
