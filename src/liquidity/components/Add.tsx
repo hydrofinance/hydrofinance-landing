@@ -1,33 +1,29 @@
 import React from "react";
 import SectionBox from "../../common/components/SectionBox";
-import { Grid, Typography, Box, Button, Link } from "@mui/material";
+import { Grid, Typography, Box, Button, Link, SxProps } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { styled } from "@mui/material/styles";
 import FancyDivider from "../../common/components/FancyDivider";
 import { defaultContentPadding } from "../../utils/theme";
-import { useTranslation } from "react-i18next";
 import { useFetchBalances } from "../redux/fetchBalances";
 import { useFetchApproval } from "../redux/fetchApproval";
-import { formatPrice, INPUT_FORMAT } from "../../utils/bignumber";
+import { INPUT_FORMAT } from "../../utils/bignumber";
 import BigNumber from "bignumber.js";
 import AmountTextField from "../../common/components/CurrencyTextField";
 import { useSnackbar } from "../../common/redux/snackbar";
 import { useAddLiquidity } from "../redux/addLiquidity";
 import Footer from "../../common/components/Footer";
 
-const TextFieldBox = styled(Box)(({ theme }) => ({
+const TextFieldBoxSx: SxProps = {
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
   border: "1px solid white",
   borderRadius: "4px",
-  padding: "16px",
-  minWidth: "400px",
-}));
+  padding: 2,
+  minWidth: { md: "400px", xs: "300px" },
+};
 
 function Content() {
-  const { t } = useTranslation();
-
   const {
     finnAddress,
     hydroAddress,
@@ -178,10 +174,28 @@ function Content() {
         alignItems: "center",
       }}
     >
-      <Typography variant="h6" sx={{ marginBottom: 4 }}>
-        You can add here your LP without tax.
+      <Typography variant="body1" sx={{ marginBottom: 4 }}>
+        You can add here your LP without tax. What you need to do:
+        <ul>
+          <li>
+            Go to Huckleberry{" "}
+            <Link
+              href="https://www.huckleberry.finance/#/add/0x56cfe76545939AFAbc8BDbA94192A96801D24d28/0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756"
+              target="_blank"
+            >
+              add liquidity page
+            </Link>
+          </li>
+          <li>Specify amount of HYDRO/FINN and wait for second asset amount</li>
+          <li>
+            Copy amounts of HYDRO and FINN from Huckleberry website to inputs
+            that are below
+          </li>
+          <li>Approve both assets</li>
+          <li>Hit add liquidity!</li>
+        </ul>
       </Typography>
-      <TextFieldBox>
+      <Box sx={TextFieldBoxSx}>
         <Typography variant="body1">
           HYDRO Balance
           <Link
@@ -199,9 +213,9 @@ function Content() {
           disabled={isAdding}
           onValueChange={handleHydroInputChange}
         />
-      </TextFieldBox>
+      </Box>
       <AddIcon sx={{ marginTop: 2, marginBottom: 2 }} />
-      <TextFieldBox>
+      <Box sx={TextFieldBoxSx}>
         <Typography variant="body1">
           FINN Balance
           <Link
@@ -219,7 +233,7 @@ function Content() {
           disabled={isAdding}
           onValueChange={handleFinnInputChange}
         />
-      </TextFieldBox>
+      </Box>
       <Box sx={{ display: "flex", marginTop: 2 }}>
         {showApproveHydro && (
           <Button

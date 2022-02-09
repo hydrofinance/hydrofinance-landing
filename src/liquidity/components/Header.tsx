@@ -3,7 +3,6 @@ import Link from "@mui/material/Link";
 import Box, { BoxProps } from "@mui/material/Box";
 import HYDRO from "../../assets/HYDRO.svg";
 import { defaultContentPadding } from "../../utils/theme";
-import { useTranslation } from "react-i18next";
 import { makeStyles } from "@mui/styles";
 import WalletButton from "../../common/components/WalletButton";
 
@@ -15,7 +14,6 @@ const useHeaderStyles = makeStyles({
 
 export default function Header(props: BoxProps) {
   const { sx, ...other } = props;
-  const { t } = useTranslation();
 
   const classes = useHeaderStyles();
 

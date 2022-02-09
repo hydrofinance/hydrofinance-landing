@@ -129,8 +129,6 @@ function Info() {
 }
 
 export default function BuyingGuide() {
-  const { t } = useTranslation();
-
   return (
     <SectionBox>
       <Box

@@ -1,7 +1,6 @@
 import { BoxProps, Button, InputAdornment } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/system/Box";
 import BigNumber from "bignumber.js";
 import React from "react";
 import { useTranslation } from "react-i18next";

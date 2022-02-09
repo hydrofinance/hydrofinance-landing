@@ -17,7 +17,7 @@ export default function WalletButton() {
   const { t } = useTranslation();
   const [shortAddress, setShortAddress] = React.useState("");
   const [dataUrl, setDataUrl] = React.useState<string | null>(null);
-  const { connectWallet, web3, address, connected } = useConnectWallet();
+  const { connectWallet, address, connected } = useConnectWallet();
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const web3Modal = React.useContext(Web3ModalProvider);
 
