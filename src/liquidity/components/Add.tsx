@@ -40,9 +40,9 @@ function Content() {
   const { showSnackbar } = useSnackbar();
   const [inputSettings, setInputSettings] = React.useState({
     hydroAmount: new BigNumber(0),
-    hydroInput: "0.0",
+    hydroInput: "",
     finnAmount: new BigNumber(0),
-    finnInput: "0.0",
+    finnInput: "",
   });
 
   React.useEffect(() => {
@@ -60,13 +60,15 @@ function Content() {
     }));
   };
 
-  const handleHydroInputChange = (amount: BigNumber, input: string) => {
+  const handleHydroInputChange = (amount: BigNumber | null, input: string) => {
     setInputSettings((s) => ({
       ...s,
-      hydroInput: amount.isEqualTo(input)
-        ? input
-        : amount.toFormat(INPUT_FORMAT),
-      hydroAmount: amount,
+      hydroInput: amount
+        ? amount.isEqualTo(input)
+          ? input
+          : amount.toFormat(INPUT_FORMAT)
+        : "",
+      hydroAmount: amount || new BigNumber(0),
     }));
   };
 
@@ -78,13 +80,15 @@ function Content() {
     }));
   };
 
-  const handleFinnInputChange = (amount: BigNumber, input: string) => {
+  const handleFinnInputChange = (amount: BigNumber | null, input: string) => {
     setInputSettings((s) => ({
       ...s,
-      finnInput: amount.isEqualTo(input)
-        ? input
-        : amount.toFormat(INPUT_FORMAT),
-      finnAmount: amount,
+      finnInput: amount
+        ? amount.isEqualTo(input)
+          ? input
+          : amount.toFormat(INPUT_FORMAT)
+        : "",
+      finnAmount: amount || new BigNumber(0),
     }));
   };
 

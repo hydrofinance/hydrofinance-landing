@@ -21,7 +21,7 @@ type Props = {
   maxValue?: BigNumber;
   fullWidth?: boolean;
   disabled?: boolean;
-  onValueChange: (value: BigNumber, input: string) => void;
+  onValueChange: (value: BigNumber | null, input: string) => void;
 };
 
 export default function AmountTextField(props: Props & BoxProps) {
@@ -45,20 +45,25 @@ export default function AmountTextField(props: Props & BoxProps) {
     const input = event.target.value
       .replace(/[,]+/, "")
       .replace(/[^0-9.]+/, "");
-    let amount = new BigNumber(input);
-    const total = maxValue || new BigNumber(0);
-    if (amount.isNaN()) amount = new BigNumber(0);
+    if (input.trim() === "") {
+      onValueChange(null, "");
+    } else {
+      let amount = new BigNumber(input);
+      const total = maxValue || new BigNumber(0);
+      if (amount.isNaN()) amount = new BigNumber(0);
 
-    amount = amount.decimalPlaces(decimals);
-    if (amount.isGreaterThan(total)) amount = total;
+      amount = amount.decimalPlaces(decimals);
+      if (amount.isGreaterThan(total)) amount = total;
 
-    onValueChange(amount, input);
+      onValueChange(amount, input);
+    }
   };
 
   return (
     <BootstrapInput
       {...(other as any)}
       value={value}
+      placeholder="0.0"
       fullWidth={fullWidth}
       onChange={handleInputAmountChange}
       endAdornment={
