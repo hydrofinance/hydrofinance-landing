@@ -174,27 +174,47 @@ function Content() {
         alignItems: "center",
       }}
     >
-      <Typography variant="body1" sx={{ marginBottom: 4 }}>
-        You can add here your LP without tax. What you need to do:
-        <ul>
-          <li>
-            Go to Huckleberry{" "}
-            <Link
-              href="https://www.huckleberry.finance/#/add/0x56cfe76545939AFAbc8BDbA94192A96801D24d28/0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756"
-              target="_blank"
-            >
-              add liquidity page
-            </Link>
-          </li>
-          <li>Specify amount of HYDRO/FINN and wait for second asset amount</li>
-          <li>
-            Copy amounts of HYDRO and FINN from Huckleberry website to inputs
-            that are below
-          </li>
-          <li>Approve both assets</li>
-          <li>Hit add liquidity!</li>
-        </ul>
-      </Typography>
+      <Box sx={{ display: "flex", flexDirection: "column", marginBottom: 4 }}>
+        <Typography variant="h5">
+          Add Liquidity to the $HYDRO - $FINN Pool without incurring 12% tax
+        </Typography>
+        <Typography variant="h6" sx={{ marginTop: 2 }}>
+          Please follow the steps below:
+        </Typography>
+        <Typography variant="body1">
+          <ol style={{ paddingLeft: 20, marginTop: 8 }}>
+            <li>
+              Go to the Huckleberry{" "}
+              <Link
+                href="https://www.huckleberry.finance/#/add/0x56cfe76545939AFAbc8BDbA94192A96801D24d28/0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756"
+                target="_blank"
+              >
+                Add Liquidity Page
+              </Link>
+            </li>
+            <li>
+              Specify the amount of <b>$HYDRO</b> you wish to add and wait for
+              the $FINN asset amount to autofill.
+            </li>
+            <li>
+              Return to this page:{" "}
+              <Link
+                href="http://hydroprotocol.finance/liquidity"
+                target="_blank"
+              >
+                http://hydroprotocol.finance/liquidity
+              </Link>
+            </li>
+            <li>
+              Paste the exact amount of <b>$HYDRO</b> and <b>$FINN</b> you
+              copied earlier in both inputs
+            </li>
+            <li>Approve both assets and sign</li>
+            <li>Hit Add Liquidity and sign</li>
+            <li>Congratulations, you've just added liquidity tax free!</li>
+          </ol>
+        </Typography>
+      </Box>
       <Box sx={TextFieldBoxSx}>
         <Typography variant="body1">
           HYDRO Balance
