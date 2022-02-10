@@ -106,6 +106,8 @@ export const getFinnAddress = (networkId: number) => {
 
 export const getHydroRouter = (networkId: number) => {
   switch (networkId) {
+    case 1285:
+      return "0x3525951C91907cC58b94c5115F8e8B05693A1658";
     case 1287:
       return "0x4032D8252FaA1A84B699e883cB38b8a4CFc620d2";
     default:
